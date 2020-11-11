@@ -13,17 +13,11 @@
       </fab>
 
       <section
-        id="fav-bar"
+        ref="carousel"
         class="flex items-center overflow-x-auto overflow-y-hidden no-scrollbar mx-6"
       >
         <div class="flex items-center">
-          <horizontalCard
-            v-for="site in 7"
-            :key="site"
-            :thumbnail="url"
-            :desc="desc"
-            :title="title"
-          />
+          <slot />
         </div>
       </section>
 
@@ -41,32 +35,19 @@
   </div>
 </template>
 
-<script>
+<script >
 import fab from "~/components/Fab";
-import horizontalCard from "~/components/HorizontalCard";
 export default {
   name: "carousel",
   components: {
     fab,
-    horizontalCard,
-  },
-  props: {
-    cardData: Object,
-  },
-  data: function () {
-    return {
-      title: "title",
-      desc: "desc",
-      url:
-        "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftotallyhistory.com%2Fwp-content%2Fuploads%2F2013%2F07%2FGary-Player.jpg&f=1&nofb=1",
-    };
   },
   methods: {
     scrollLeft() {
-      document.getElementById("fav-bar").scrollBy(-280, 0);
+      this.$refs.carousel.scrollBy(-280, 0);
     },
     scrollRight() {
-      document.getElementById("fav-bar").scrollBy(280, 0);
+      this.$refs.carousel.scrollBy(280, 0);
     },
   },
 };

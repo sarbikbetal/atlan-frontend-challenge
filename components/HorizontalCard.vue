@@ -4,8 +4,8 @@
       <img class="card-image h-full object-cover" :src="thumbnail" />
     </div>
     <div class="flex flex-col px-2">
-      <span class="text-xl">{{ title }}</span>
-      <span class="text-sm text-gray-600">{{ desc }}</span>
+      <span class="font-bold text-xl">{{ title }}</span>
+      <p class="text-gray-700 text-base">{{ desc }}</p>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   grid-template-columns: 2fr 3fr;
   @apply rounded-l-xl;
   @apply rounded-r;
-  @apply shadow-md;
+  @apply shadow-lg;
   @apply bg-yellow-200;
 }
 
