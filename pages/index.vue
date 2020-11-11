@@ -1,0 +1,33 @@
+<template>
+  <div class="">
+    <span class="text-4xl">Discover</span>
+    <carousel />
+  </div>
+</template>
+
+<script>
+import carousel from "~/components/Carousel";
+export default {
+  components: {
+    carousel,
+  },
+};
+</script>
+
+<style>
+:root {
+  --header-bg-color: #fff;
+  --primary: #edf2f7;
+  --primary-light: #e2e8f0;
+  --secondary: #38b2ac;
+  --board: #f7fafc;
+  --accent: #f6e05e;
+  --accent-light: #faf089;
+  --link: #2c7a7b;
+  --text-strong: #4a5568;
+  --text: #718096;
+  --text-light: #a0aec0;
+
+  color: var(--text);
+}
+</style>
