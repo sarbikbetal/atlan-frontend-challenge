@@ -4,10 +4,13 @@
 
 <script>
 export default {
-
-}
+  data: function () {
+    return {
+      term: this.$route.query.term,
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

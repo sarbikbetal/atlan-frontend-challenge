@@ -26,7 +26,7 @@
     <input
       @keyup.enter="search"
       @keyup.esc="$event.target.blur()"
-      v-model="terms"
+      v-model="term"
       class="websearch ml-2 py-2 pr-4 block w-full appearance-none leading-normal"
       type="text"
       placeholder="Search the web"
@@ -39,14 +39,22 @@ export default {
   name: "searchBar",
   data: function () {
     return {
-      terms: "",
+      term: "",
       isChooserOpen: false,
       selectedEntity: "All",
       searchEntities: ["All", "Players", "Venues", "Teams", "Owners"],
     };
   },
   methods: {
-    search() {},
+    search() {
+      if (this.term)
+        this.$router.push({ path: "search", query: { term: this.term } });
+      else
+        this.$snack.danger({
+          text: "Please type in something...",
+          button: "OK",
+        });
+    },
   },
 };
 </script>
