@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="facet-wrapper">
     <transition name="fade">
       <div class="facet-container container" v-if="isFilterApplied">
         <span class="text-3xl pl-4">Filters </span>
@@ -51,6 +51,9 @@ export default {
 </script>
 
 <style>
+.facet-wrapper {
+  background-color: var(--primary);
+}
 .facet-container {
   min-height: 3.5rem;
   padding-top: 0.25rem;

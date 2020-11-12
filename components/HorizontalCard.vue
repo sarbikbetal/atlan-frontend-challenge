@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-col px-2">
       <span class="font-bold text-xl">{{ title }}</span>
-      <p class="text-gray-700 text-base">{{ desc }}</p>
+      <p class="text-base">{{ desc }}</p>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
   @apply rounded-l-xl;
   @apply rounded-r;
   @apply shadow-lg;
-  @apply bg-yellow-200;
+  background-color: var(--primary);
 }
 
 .horizontal-card .card-image {

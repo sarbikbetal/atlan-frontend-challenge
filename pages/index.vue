@@ -1,7 +1,8 @@
 <template>
   <div>
+    <themeSwitcher class="absolute z-10 top-0 right-0 mt-4 mr-4" />
     <hero>
-      <h1 class="text-4xl">Discover IPL</h1>
+      <h1 class="text-4xl text-gray-200">Discover IPL</h1>
       <searchBar />
     </hero>
     <div class="container">
@@ -31,10 +32,13 @@ import horizontalCard from "~/components/HorizontalCard";
 import hero from "~/components/Hero";
 import card from "~/components/Card";
 import searchBar from "~/components/SearchBar";
+import themeSwitcher from "~/components/ThemeSwitcher";
+
 export default {
   components: {
     carousel,
     horizontalCard,
+    themeSwitcher,
     searchBar,
     card,
     hero,

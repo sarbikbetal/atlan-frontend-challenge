@@ -3,13 +3,27 @@
   --primary: #edf2f7;
   --primary-light: #e2e8f0;
   --secondary: #38b2ac;
+  --secondary-light: rgb(164, 214, 212);
   --board: #f7fafc;
-  --accent: #f6e05e;
-  --accent-light: #faf089;
-  --link: #2c7a7b;
   --text-strong: #4a5568;
   --text: #718096;
   --text-light: #a0aec0;
+}
 
-  color: var(--text);
+.dark-mode {
+  --header-bg-color: #212121;
+  --primary: #323232;
+  --primary-light: #464646;
+  --secondary: #f687b3;
+  --secondary-light: #cca6b5;
+  --board: #121212;
+  --text-strong: #d6d6d6;
+  --text: #c4c4c4;
+  --text-light: #838383;
+}
+
+body {
+  background-color: var(--board);
+  color: var(--text-strong);
+  transition: all 0.4s;
 }

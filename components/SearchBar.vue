@@ -105,9 +105,6 @@ export default {
   background-color: var(--primary);
   @apply rounded-lg;
 }
-.searchbar:hover {
-  border-color: var(--accent);
-}
 .searchbar:focus {
   background-color: var(--primary-light);
 }

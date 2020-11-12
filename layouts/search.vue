@@ -7,7 +7,7 @@
         <span class="text-2xl hidden md:inline">Discover IPL</span>
       </NuxtLink>
       <searchBar />
-      <span></span>
+      <themeSwitcher class="ml-3"/>
     </nav>
     <nav class="pt-16">
       <facetBar />
@@ -21,12 +21,15 @@
 <script>
 import searchBar from "~/components/SearchBar";
 import facetBar from "~/components/FacetBar";
+import themeSwitcher from "~/components/ThemeSwitcher";
 
 export default {
   name: "navbar",
+
   components: {
     searchBar,
     facetBar,
+    themeSwitcher,
   },
 };
 </script>

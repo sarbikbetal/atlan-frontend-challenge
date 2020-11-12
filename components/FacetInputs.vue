@@ -17,6 +17,10 @@
           :lazy="true"
           tooltip-placement="bottom"
           contained="true"
+          :tooltip-style="{
+            backgroundColor: 'var(--secondary)',
+            borderColor: 'var(--secondary)',
+          }"
         ></vue-slider>
         <label>{{ key }}</label>
       </div>
@@ -73,5 +77,17 @@ export default {
 }
 .fade-move {
   transition: transform 0.2s;
+}
+.vue-slider-dot-handle::after {
+  background-color: var(--secondary);
+  opacity: 0.2;
+}
+.vue-slider-rail {
+  background-color: var(--secondary-light);
+}
+.vue-slider-dot-handle,
+.vue-slider-process,
+.vue-slider-mark-step {
+  background-color: var(--secondary);
 }
 </style>
