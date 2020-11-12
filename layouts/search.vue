@@ -3,7 +3,9 @@
     <nav
       class="navbar flex fixed w-full items-center justify-between px-3 md:px-6 h-16 z-10"
     >
-      <span class="text-2xl hidden md:inline">Discover IPL</span>
+      <NuxtLink to="/">
+        <span class="text-2xl hidden md:inline">Discover IPL</span>
+      </NuxtLink>
       <searchBar />
       <span></span>
     </nav>

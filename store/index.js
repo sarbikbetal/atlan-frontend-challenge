@@ -30,22 +30,22 @@ export const mutations = {
     });
 
     state.teamFields = {
-      h_wins: {
+      "Home Wins": {
         type: "range",
         val: [Math.min(...h_wins), Math.max(...h_wins)]
       },
-      a_wins: {
+      "Away Wins": {
         type: "range",
         val: [Math.min(...a_wins), Math.max(...a_wins)]
       },
-      h_matches: {
+      "Home Matches": {
         type: "range",
         val: [Math.min(...h_matches), Math.max(...h_matches)]
       },
-      a_matches: {
+      "Away Matches": {
         type: "range",
         val: [Math.min(...a_matches), Math.max(...a_matches)]
-      } 
+      }
     };
   }
 };

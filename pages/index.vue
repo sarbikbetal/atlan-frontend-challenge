@@ -39,6 +39,7 @@ export default {
     card,
     hero,
   },
+  transition: "fade",
   data: function () {
     return {
       title: "title",
@@ -51,4 +52,17 @@ export default {
 </script>
 
 <style>
+.fade-enter-active {
+  transition: all 0.3s;
+}
+.fade-enter {
+  opacity: 0.1;
+}
+.fade-leave-to,
+.fade-leave {
+  opacity: 0;
+}
+.fade-move {
+  transition: transform 0.2s;
+}
 </style>

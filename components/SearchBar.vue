@@ -27,10 +27,19 @@
       @keyup.enter="search"
       @keyup.esc="$event.target.blur()"
       v-model="term"
-      class="searchInput ml-2 py-2 pr-4 block w-full appearance-none leading-normal"
+      class="searchInput pl-2 py-2 pr-4 block w-full appearance-none leading-normal"
       type="text"
       placeholder="Search anything..."
     />
+    <button @click="search" class="search-btn focus:outline-none">
+      <svg class="w-6 h-6 m-2" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          fill="var(--text)"
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -78,13 +87,15 @@ export default {
 
 <style>
 .searchInput {
-  @apply mr-2;
   @apply transition-all;
   @apply duration-300;
   @apply ease-in-out;
   @apply bg-transparent;
 }
-.searchInput:focus {
+.searchInput:focus,
+.searchInput:hover {
+  @apply rounded;
+  background-color: var(--primary-light);
   outline: none;
 }
 .searchInput::placeholder {
@@ -95,20 +106,26 @@ export default {
   @apply rounded-lg;
 }
 .searchbar:hover {
-  background-color: var(--primary-light);
   border-color: var(--accent);
 }
 .searchbar:focus {
   background-color: var(--primary-light);
 }
+
+.search-btn:hover,
+.search-btn:focus {
+  @apply rounded-lg;
+  background-color: var(--primary-light);
+}
 .search-entity-select {
-  @apply px-2;
+  @apply p-2;
   @apply flex;
   @apply items-center;
   border-right: transparent 2px solid;
 }
 .search-entity-select:hover {
-  border-right: var(--text-light) 1px solid;
+  @apply rounded;
+  background-color: var(--primary-light);
 }
 .search-entity-chooser {
   top: 28px;

@@ -1,13 +1,18 @@
 <template>
-  <transition name="fade">
-    <div class="facet-container container" v-if="isFilterOpen">
-      <facetInputs
-        :type="selectedFilter"
-        :facets="getFacets"
-        :values="getValues"
-      />
-    </div>
-  </transition>
+  <div class="bg-gray-200">
+    <transition name="fade">
+      <div class="facet-container container" v-if="isFilterApplied">
+        <span class="text-3xl pl-4">Filters </span>
+        <facetInputs
+          class=""
+          v-if="getFacets"
+          :type="selectedFilter"
+          :facets="getFacets"
+        />
+        <span class="text-3xl" v-else> not implemented</span>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -23,7 +28,7 @@ export default {
     return {};
   },
   computed: {
-    isFilterOpen: function () {
+    isFilterApplied: function () {
       return filterTags.includes(this.$route.query.type);
     },
     selectedFilter: function () {
@@ -38,17 +43,8 @@ export default {
         ? this.$route.query.type
         : "";
       if (!type) return;
-      else if (type == "Players") return this.$store.state.playerFields;
       else if (type == "Teams") return this.$store.state.teamFields;
-    },
-    getValues() {
-      let vals = [];
-      const facets = this.getFacets;
-      for (const key in facets) {
-        const element = facets[key];
-        vals.push(element.val);
-      }
-      return vals;
+      else return null;
     },
   },
 };
@@ -56,15 +52,20 @@ export default {
 
 <style>
 .facet-container {
-  min-height: 4rem;
-  padding-top: 2rem;
+  min-height: 3.5rem;
+  padding-top: 0.25rem;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+.fade-enter-active {
+  transition: all 0.3s;
 }
-.fade-enter,
-.fade-leave-to {
+.fade-enter {
+  opacity: 0.1;
+}
+.fade-leave-to,
+.fade-leave {
   opacity: 0;
+}
+.fade-move {
+  transition: transform 0.2s;
 }
 </style>
