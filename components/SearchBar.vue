@@ -27,50 +27,67 @@
       @keyup.enter="search"
       @keyup.esc="$event.target.blur()"
       v-model="term"
-      class="websearch ml-2 py-2 pr-4 block w-full appearance-none leading-normal"
+      class="searchInput ml-2 py-2 pr-4 block w-full appearance-none leading-normal"
       type="text"
-      placeholder="Search the web"
+      placeholder="Search anything..."
     />
   </div>
 </template>
 
 <script>
+const tags = ["All", "Players", "Venues", "Teams", "Owners"];
 export default {
   name: "searchBar",
   data: function () {
     return {
-      term: "",
+      term: this.$route.query.term || "",
       isChooserOpen: false,
-      selectedEntity: "All",
-      searchEntities: ["All", "Players", "Venues", "Teams", "Owners"],
+      selectedEntity: tags.includes(this.$route.query.type)
+        ? this.$route.query.type
+        : "All",
+      searchEntities: tags,
     };
   },
   methods: {
+    updateURL() {
+      this.$router.push({
+        path: "search",
+        query: { term: this.term, type: this.selectedEntity },
+      });
+    },
     search() {
-      if (this.term)
-        this.$router.push({ path: "search", query: { term: this.term } });
+      if (this.term) this.updateURL();
       else
         this.$snack.danger({
           text: "Please type in something...",
           button: "OK",
         });
     },
+    setFilter(entity) {
+      this.selectedEntity = entity;
+      if (this.term) this.updateURL();
+      console.log(this.selectedEntity);
+    },
+    closeChooser() {
+      console.log("hello");
+      if (this.isChooserOpen) this.isChooserOpen = false;
+    },
   },
 };
 </script>
 
 <style>
-.websearch {
+.searchInput {
   @apply mr-2;
   @apply transition-all;
   @apply duration-300;
   @apply ease-in-out;
   @apply bg-transparent;
 }
-.websearch:focus {
+.searchInput:focus {
   outline: none;
 }
-.websearch::placeholder {
+.searchInput::placeholder {
   color: var(--text-light);
 }
 .searchbar {
@@ -86,14 +103,12 @@ export default {
 }
 .search-entity-select {
   @apply px-2;
-  @apply my-2;
   @apply flex;
   @apply items-center;
   border-right: transparent 2px solid;
 }
-.search-entity-select:hover,
-.search-entity-select:focus {
-  border-right: var(--text-light) 2px solid;
+.search-entity-select:hover {
+  border-right: var(--text-light) 1px solid;
 }
 .search-entity-chooser {
   top: 28px;
@@ -104,6 +119,8 @@ export default {
   @apply bg-white;
   @apply rounded-lg;
   @apply shadow-xl;
+  @apply transition-all;
+  @apply duration-300;
   background-color: var(--primary);
 }
 .search-entity-option {

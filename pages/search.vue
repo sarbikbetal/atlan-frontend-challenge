@@ -9,6 +9,11 @@ export default {
       term: this.$route.query.term,
     };
   },
+  layout: "search",
+  created: function () {
+    this.$store.dispatch("loadPlayerData");
+    this.$store.dispatch("loadTeamData");
+  },
 };
 </script>
 
