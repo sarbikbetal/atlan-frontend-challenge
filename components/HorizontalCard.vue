@@ -3,7 +3,7 @@
     <div class="relative">
       <img class="card-image h-full object-cover" :src="thumbnail" />
     </div>
-    <div class="flex flex-col px-2">
+    <div class="flex flex-col p-2">
       <span class="font-bold text-xl">{{ title }}</span>
       <p class="text-base">{{ desc }}</p>
     </div>

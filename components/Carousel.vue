@@ -61,7 +61,7 @@ export default {
   @apply pb-2;
   @apply rounded-md;
   @apply relative;
-  @apply h-40;
+  @apply h-48;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
@@ -75,7 +75,7 @@ export default {
 .scroll-btn {
   @apply absolute;
   z-index: 3;
-  top: 4rem;
+  top: 4.5rem;
   transition: all 300ms;
 }
 .scroll-btn:hover {

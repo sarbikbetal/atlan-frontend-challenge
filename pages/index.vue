@@ -5,22 +5,32 @@
       <h1 class="text-4xl text-gray-200">Discover IPL</h1>
       <searchBar />
     </hero>
-    <div class="container">
-      <p class="text-3xl">Trending players</p>
+    <div class="container my-2">
+      <span class="text-3xl">Trending players</span>
     </div>
     <carousel>
       <horizontalCard
         v-for="site in 7"
         :key="site"
         :thumbnail="url"
-        :desc="desc"
-        :title="title"
+        title="Player name"
+        desc="Description/Stats"
       />
     </carousel>
-    <div class="container">
+    <div class="container my-2">
       <span class="text-3xl">Mesmerising venues</span>
-      <div class="flex justify-evenly flex-wrap">
-        <card v-for="site in 4" :key="site" class="m-4" />
+      <div class="flex flex-wrap justify-evenly text-center">
+        <div
+          class="p-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+          v-for="site in 4"
+          :key="site"
+        >
+          <card
+            class="mx-auto"
+            title="Stadium Name"
+            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibusquia"
+          />
+        </div>
       </div>
     </div>
   </div>

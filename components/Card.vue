@@ -5,12 +5,8 @@
       src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Ehj-XVft8TzqGuDvoS-IUwHaE6%26pid%3DApi&f=1"
     />
     <div class="flex flex-col p-2">
-      <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-      <p class="text-base">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-        nihil.
-      </p>
+      <div class="font-bold text-xl mb-2">{{ title }}</div>
+      <p class="text-base">{{ desc }}</p>
     </div>
   </div>
 </template>
@@ -18,6 +14,10 @@
 <script>
 export default {
   name: "card",
+  props: {
+    title: String,
+    desc: String,
+  },
 };
 </script>
 
