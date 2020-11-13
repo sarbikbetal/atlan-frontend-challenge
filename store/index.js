@@ -4,68 +4,67 @@ export const state = () => ({
       type: "range",
       range: [18, 80]
     },
-    Height: {
-      type: "range",
-      range: [5, 7]
+    "Height (cm)": {
+      type: "discrete_range",
+      range: [150, 220],
+      interval: 10
     },
     Batting_Hand: {
       type: "checkbox",
-      val: {
-        Right_Hand: false,
-        Left_Hand: false
-      }
+      val: ["Right_Hand", "Left_Hand"],
+      open: true
     },
     Bowling_Skills: {
       type: "checkbox",
-      val: {
-        Right_Arm: false,
-        Left_arm: false,
-        Fast: false,
-        Fast_Medium: false,
-        Medium_Fast: false,
-        Medium: false,
-        Slow: false,
-        Orthodox: false,
-        Legbreak: false,
-        Googly: false,
-        Offbreak: false,
-        Chinaman: false
-      }
+      val: [
+        "Right_Arm",
+        "Left_arm",
+        "Fast",
+        "Fast_Medium",
+        "Medium_Fast",
+        "Medium",
+        "Slow",
+        "Orthodox",
+        "Legbreak",
+        "Googly",
+        "Offbreak",
+        "Chinaman"
+      ]
     },
     Team: {
       type: "checkbox",
-      val: {
-        "Rising Pune Supergiant": false,
-        "Mumbai Indians": false,
-        "Chennai Super Kings": false,
-        "Delhi Capitals": false,
-        "Sunrisers Hyderabad": false,
-        "Rajasthan Royals": false,
-        "Deccan Chargers": false,
-        "Kings XI Punjab": false,
-        "Royal Challengers Bangalore": false,
-        "Kolkata Knight Riders": false,
-        "Delhi Daredevils": false,
-        "Pune Warriors": false,
-        "Kochi Tuskers Kerala": false,
-        "Gujarat Lions": false
-      }
+      val: [
+        "Rising Pune Supergiant",
+        "Mumbai Indians",
+        "Chennai Super Kings",
+        "Delhi Capitals",
+        "Sunrisers Hyderabad",
+        "Rajasthan Royals",
+        "Deccan Chargers",
+        "Kings XI Punjab",
+        "Royal Challengers Bangalore",
+        "Kolkata Knight Riders",
+        "Delhi Daredevils",
+        "Pune Warriors",
+        "Kochi Tuskers Kerala",
+        "Gujarat Lions"
+      ]
     },
     Country: {
       type: "checkbox",
-      val: {
-        India: false,
-        England: false,
-        Sri_Lanka: false,
-        West_Indies: false,
-        New_Zealand: false,
-        Australia: false,
-        Pakistan: false,
-        South_Africa: false,
-        Bangladesh: false,
-        Netherlands: false,
-        Zimbabwea: false
-      }
+      val: [
+        "India",
+        "England",
+        "Sri_Lanka",
+        "West_Indies",
+        "New_Zealand",
+        "Australia",
+        "Pakistan",
+        "South_Africa",
+        "Bangladesh",
+        "Netherlands",
+        "Zimbabwea"
+      ]
     }
   },
   teamFields: {
@@ -73,49 +72,32 @@ export const state = () => ({
       type: "range",
       range: [5, 70]
     },
+    Won_IPL: {
+      type: "switch"
+    },
     Strenth: {
       type: "checkbox",
-      val: ["Batting", "Bowling", "Fielding"]
-    },
-    Won_IPL: {
-      type: "switch",
+      val: ["Batting", "Bowling", "Fielding"],
+      open: true
     }
   },
   venueFields: {
     Seating_Capacity: {
       type: "discrete_range",
-      range: [20000, 30000, 40000, 50000, 60000, 70000]
+      range: [20000, 70000],
+      interval: 10000
     },
     Pitch_Type: {
       type: "checkbox",
-      val: {
-        Dusty: false,
-        Dead: false,
-        Green: false,
-        Slow: false,
-        Fast: false,
-        Seaming: false
-      }
+      val: ["Dusty", "Dead", "Green", "Slow", "Fast", "Seaming"],
+      open: true
     }
   },
   ownerFields: {
     Profession: {
       type: "checkbox",
-      val: {
-        Dusty: false,
-        Dead: false
-      }
-    },
-    Pitch_Type: {
-      type: "checkbox",
-      val: {
-        Dusty: false,
-        Dead: false,
-        Green: false,
-        Slow: false,
-        Fast: false,
-        Seaming: false
-      }
+      val: ["Bollywood", "Business"],
+      open: true
     }
   }
 });

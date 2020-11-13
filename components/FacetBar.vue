@@ -2,7 +2,7 @@
   <div class="facet-wrapper w-full">
     <transition name="fade">
       <div class="facet-container" v-if="isFilterApplied">
-        <span class="text-xl pl-4">Filters </span>
+        <span class="text-2xl pl-4">Filters </span>
         <facetInputs
           class="mt-3"
           v-if="getFacets"
@@ -44,6 +44,8 @@ export default {
       if (!type) return;
       else if (type == "Teams") return this.$store.state.teamFields;
       else if (type == "Players") return this.$store.state.playerFields;
+      else if (type == "Venues") return this.$store.state.venueFields;
+      else if (type == "Owners") return this.$store.state.ownerFields;
       else return null;
     },
   },
