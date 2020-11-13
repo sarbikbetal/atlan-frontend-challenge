@@ -2,9 +2,9 @@
   <div class="facet-wrapper">
     <transition name="fade">
       <div class="facet-container container" v-if="isFilterApplied">
-        <span class="text-3xl pl-4">Filters </span>
+        <span class="text-xl pl-4">Filters </span>
         <facetInputs
-          class=""
+          class="mt-3"
           v-if="getFacets"
           :type="selectedFilter"
           :facets="getFacets"
@@ -55,8 +55,8 @@ export default {
   background-color: var(--primary);
 }
 .facet-container {
-  min-height: 3.5rem;
-  padding-top: 0.25rem;
+  min-height: calc(100vh - 4rem);
+  padding-top: 1rem;
 }
 .fade-enter-active {
   transition: all 0.3s;

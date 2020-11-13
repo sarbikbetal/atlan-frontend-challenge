@@ -12,8 +12,7 @@
     "@nuxtjs/pwa": "^3.0.2",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "vue-slider-component": "^3.2.10",
-    "vue-snack": "^0.1.4"
+    "vue-slider-component": "^3.2.10"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.0",

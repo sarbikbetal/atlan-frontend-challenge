@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="flex flex-wrap justify-between text-center">
       <div
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 pb-4"
+        class="w-full px-4 pb-4"
         v-for="(facet, key) in facets"
         :key="key"
       >

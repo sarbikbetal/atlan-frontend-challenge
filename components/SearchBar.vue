@@ -60,17 +60,12 @@ export default {
   methods: {
     updateURL() {
       this.$router.push({
-        path: "search",
+        path: "/search",
         query: { term: this.term, type: this.selectedEntity },
       });
     },
     search() {
-      if (this.term) this.updateURL();
-      else
-        this.$snack.danger({
-          text: "Please type in something...",
-          button: "OK",
-        });
+      this.updateURL();
     },
     setFilter(entity) {
       this.selectedEntity = entity;
