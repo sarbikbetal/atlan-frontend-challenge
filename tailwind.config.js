@@ -4,9 +4,4 @@ module.exports = {
       center: true
     }
   },
-  purge: {
-    options: {
-      whitelist: [/snack/, /top/, /bottom/, /left/, /right/]
-    }
-  }
 };

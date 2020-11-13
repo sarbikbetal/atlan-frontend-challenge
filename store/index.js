@@ -1,63 +1,103 @@
 export const state = () => ({
-  players: [],
-  teams: [],
-  venues: [],
-  owners: [],
-  playerFields: [],
-  teamFields: {}
+  playerFields: {
+    Age: {
+      type: "range",
+      range: [18, 80]
+    },
+    "Height (cm)": {
+      type: "discrete_range",
+      range: [150, 220],
+      interval: 10
+    },
+    Batting_Hand: {
+      type: "checkbox",
+      val: ["Right_Hand", "Left_Hand"],
+      open: true
+    },
+    Bowling_Skills: {
+      type: "checkbox",
+      val: [
+        "Right_Arm",
+        "Left_arm",
+        "Fast",
+        "Fast_Medium",
+        "Medium_Fast",
+        "Medium",
+        "Slow",
+        "Orthodox",
+        "Legbreak",
+        "Googly",
+        "Offbreak",
+        "Chinaman"
+      ]
+    },
+    Team: {
+      type: "checkbox",
+      val: [
+        "Rising Pune Supergiant",
+        "Mumbai Indians",
+        "Chennai Super Kings",
+        "Delhi Capitals",
+        "Sunrisers Hyderabad",
+        "Rajasthan Royals",
+        "Deccan Chargers",
+        "Kings XI Punjab",
+        "Royal Challengers Bangalore",
+        "Kolkata Knight Riders",
+        "Delhi Daredevils",
+        "Pune Warriors",
+        "Kochi Tuskers Kerala",
+        "Gujarat Lions"
+      ]
+    },
+    Country: {
+      type: "checkbox",
+      val: [
+        "India",
+        "England",
+        "Sri_Lanka",
+        "West_Indies",
+        "New_Zealand",
+        "Australia",
+        "Pakistan",
+        "South_Africa",
+        "Bangladesh",
+        "Netherlands",
+        "Zimbabwea"
+      ]
+    }
+  },
+  teamFields: {
+    Total_Wins: {
+      type: "range",
+      range: [5, 70]
+    },
+    Won_IPL: {
+      type: "switch"
+    },
+    Strenth: {
+      type: "checkbox",
+      val: ["Batting", "Bowling", "Fielding"],
+      open: true
+    }
+  },
+  venueFields: {
+    Seating_Capacity: {
+      type: "discrete_range",
+      range: [20000, 70000],
+      interval: 10000
+    },
+    Pitch_Type: {
+      type: "checkbox",
+      val: ["Dusty", "Dead", "Green", "Slow", "Fast", "Seaming"],
+      open: true
+    }
+  },
+  ownerFields: {
+    Profession: {
+      type: "checkbox",
+      val: ["Bollywood", "Business"],
+      open: true
+    }
+  }
 });
-
-export const mutations = {
-  loadPlayerData(state, playerData) {
-    state.players = playerData;
-  },
-  loadTeamData(state, teamData) {
-    state.teams = teamData;
-  },
-  loadPlayerFilters(state, playerData) {
-    // state.playerFields = playerData;
-  },
-  loadTeamFilters(state, teamData) {
-    let h_wins = [];
-    let a_wins = [];
-    let h_matches = [];
-    let a_matches = [];
-    teamData.forEach(team => {
-      h_wins.push(team.h_wins);
-      a_wins.push(team.a_wins);
-      h_matches.push(team.h_ms);
-      a_matches.push(team.a_ms);
-    });
-
-    state.teamFields = {
-      "Home Wins": {
-        type: "range",
-        val: [Math.min(...h_wins), Math.max(...h_wins)]
-      },
-      "Away Wins": {
-        type: "range",
-        val: [Math.min(...a_wins), Math.max(...a_wins)]
-      },
-      "Home Matches": {
-        type: "range",
-        val: [Math.min(...h_matches), Math.max(...h_matches)]
-      },
-      "Away Matches": {
-        type: "range",
-        val: [Math.min(...a_matches), Math.max(...a_matches)]
-      }
-    };
-  }
-};
-
-export const actions = {
-  async loadPlayerData(context) {
-    const playerData = await fetch("players.json").then(res => res.json());
-    context.commit("loadPlayerData", playerData);
-  },
-  async loadTeamData(context) {
-    const teamData = await fetch("teams.json").then(res => res.json());
-    context.commit("loadTeamData", teamData);
-    context.commit("loadTeamFilters", teamData);
-  }
-};

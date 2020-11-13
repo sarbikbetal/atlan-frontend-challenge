@@ -1,15 +1,15 @@
 <template>
-  <div class="facet-wrapper">
+  <div class="facet-wrapper w-full">
     <transition name="fade">
-      <div class="facet-container container" v-if="isFilterApplied">
-        <span class="text-3xl pl-4">Filters </span>
+      <div class="facet-container" v-if="isFilterApplied">
+        <span class="text-2xl pl-4">Filters </span>
         <facetInputs
-          class=""
+          class="mt-3"
           v-if="getFacets"
           :type="selectedFilter"
           :facets="getFacets"
         />
-        <span class="text-3xl" v-else> not implemented</span>
+        <span class="text-xl" v-else> not implemented</span>
       </div>
     </transition>
   </div>
@@ -38,12 +38,14 @@ export default {
     },
     getFacets: function () {
       let zym = this.$store.state;
-      console.log(zym);
       let type = filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
         : "";
       if (!type) return;
       else if (type == "Teams") return this.$store.state.teamFields;
+      else if (type == "Players") return this.$store.state.playerFields;
+      else if (type == "Venues") return this.$store.state.venueFields;
+      else if (type == "Owners") return this.$store.state.ownerFields;
       else return null;
     },
   },
@@ -55,8 +57,8 @@ export default {
   background-color: var(--primary);
 }
 .facet-container {
-  min-height: 3.5rem;
-  padding-top: 0.25rem;
+  min-height: calc(100vh - 4rem);
+  padding-top: 1rem;
 }
 .fade-enter-active {
   transition: all 0.3s;

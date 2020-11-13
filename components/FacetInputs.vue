@@ -1,28 +1,63 @@
 <template>
   <transition name="fade">
-    <div class="flex flex-wrap justify-between text-center">
-      <div
-        class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 pb-4"
-        v-for="(facet, key) in facets"
-        :key="key"
-      >
-        <vue-slider
-          v-if="facet.type == 'range'"
-          :min="facet.val[0]"
-          :max="facet.val[1]"
-          :marks="[facet.val[0], facet.val[1]]"
-          :value="facetData[key] || [facet.val[0], facet.val[1]]"
-          @change="handleSliderChange(key, $event)"
-          :enable-cross="false"
-          :lazy="true"
-          tooltip-placement="bottom"
-          contained="true"
-          :tooltip-style="{
-            backgroundColor: 'var(--secondary)',
-            borderColor: 'var(--secondary)',
-          }"
-        ></vue-slider>
-        <label>{{ key }}</label>
+    <div class="flex flex-wrap justify-between">
+      <div class="w-full px-4 pb-4" v-for="(facet, key) in facets" :key="key">
+        <div class="text-center" v-if="facet.type == 'range'">
+          <vue-slider
+            :min="facet.range[0]"
+            :max="facet.range[1]"
+            :marks="[facet.range[0], facet.range[1]]"
+            :value="facetData[key] || [facet.range[0], facet.range[1]]"
+            @change="handleSliderChange(key, $event)"
+            :enable-cross="false"
+            :lazy="true"
+            contained="true"
+            :tooltip-style="{
+              backgroundColor: 'var(--secondary)',
+              borderColor: 'var(--secondary)',
+            }"
+          />
+          <label>{{ key }}</label>
+        </div>
+
+        <div class="text-center" v-if="facet.type == 'discrete_range'">
+          <vue-slider
+            :min="facet.range[0]"
+            :max="facet.range[1]"
+            :interval="facet.interval"
+            :marks="[facet.range[0], facet.range[1]]"
+            :value="facetData[key] || [facet.range[0], facet.range[1]]"
+            @change="handleSliderChange(key, $event)"
+            :enable-cross="false"
+            :lazy="true"
+            contained="true"
+            :tooltip-style="{
+              backgroundColor: 'var(--secondary)',
+              borderColor: 'var(--secondary)',
+            }"
+          />
+          <label>{{ key }}</label>
+        </div>
+
+        <collapsible
+          v-if="facet.type == 'checkbox'"
+          :title="key.replace('_', ' ')"
+          :expanded="facet.open"
+        >
+          <p class="m-2" v-for="(value, key) in facet.val" :key="key">
+            <PrettyCheck class="p-default p-curve p-pulse">{{
+              value.replace("_", " ")
+            }}</PrettyCheck>
+          </p>
+        </collapsible>
+
+        <div class="flex items-center" v-if="facet.type == 'switch'">
+          <span class="pr-4 text-lg">{{ key.replace("_", " ") }}</span>
+          <div class="flex-grow" />
+          <div>
+            <PrettyCheck class="p-default p-round p-pulse" />
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -30,11 +65,20 @@
 
 <script>
 import VueSlider from "vue-slider-component";
+import PrettyCheck from "pretty-checkbox-vue/check";
+import PrettyRadio from "pretty-checkbox-vue/radio";
+import collapsible from "~/components/Collapsible";
+
 import "vue-slider-component/theme/material.css";
+import Collapsible from "./Collapsible.vue";
+
 export default {
   name: "facetInputs",
   components: {
+    collapsible,
     VueSlider,
+    PrettyCheck,
+    Collapsible,
   },
   props: {
     type: String,
@@ -65,6 +109,7 @@ export default {
 </script>
 
 <style>
+@import "pretty-checkbox/dist/pretty-checkbox.min.css";
 .fade-enter-active {
   transition: all 0.3s;
 }
