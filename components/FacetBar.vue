@@ -38,12 +38,12 @@ export default {
     },
     getFacets: function () {
       let zym = this.$store.state;
-      console.log(zym);
       let type = filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
         : "";
       if (!type) return;
       else if (type == "Teams") return this.$store.state.teamFields;
+      else if (type == "Players") return this.$store.state.playerFields;
       else return null;
     },
   },

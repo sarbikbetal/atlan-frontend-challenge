@@ -23,10 +23,6 @@ export default {
   },
   layout: "search",
   transition: "fade",
-  beforeCreate: function () {
-    this.$store.dispatch("loadPlayerData");
-    this.$store.dispatch("loadTeamData");
-  },
 };
 </script>
 

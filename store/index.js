@@ -1,63 +1,122 @@
 export const state = () => ({
-  players: [],
-  teams: [],
-  venues: [],
-  owners: [],
-  playerFields: [],
-  teamFields: {}
-});
-
-export const mutations = {
-  loadPlayerData(state, playerData) {
-    state.players = playerData;
-  },
-  loadTeamData(state, teamData) {
-    state.teams = teamData;
-  },
-  loadPlayerFilters(state, playerData) {
-    // state.playerFields = playerData;
-  },
-  loadTeamFilters(state, teamData) {
-    let h_wins = [];
-    let a_wins = [];
-    let h_matches = [];
-    let a_matches = [];
-    teamData.forEach(team => {
-      h_wins.push(team.h_wins);
-      a_wins.push(team.a_wins);
-      h_matches.push(team.h_ms);
-      a_matches.push(team.a_ms);
-    });
-
-    state.teamFields = {
-      "Home Wins": {
-        type: "range",
-        val: [Math.min(...h_wins), Math.max(...h_wins)]
-      },
-      "Away Wins": {
-        type: "range",
-        val: [Math.min(...a_wins), Math.max(...a_wins)]
-      },
-      "Home Matches": {
-        type: "range",
-        val: [Math.min(...h_matches), Math.max(...h_matches)]
-      },
-      "Away Matches": {
-        type: "range",
-        val: [Math.min(...a_matches), Math.max(...a_matches)]
+  playerFields: {
+    Age: {
+      type: "range",
+      range: [18, 80]
+    },
+    Height: {
+      type: "range",
+      range: [5, 7]
+    },
+    Batting_Hand: {
+      type: "checkbox",
+      val: {
+        Right_Hand: false,
+        Left_Hand: false
       }
-    };
-  }
-};
-
-export const actions = {
-  async loadPlayerData(context) {
-    const playerData = await fetch("players.json").then(res => res.json());
-    context.commit("loadPlayerData", playerData);
+    },
+    Bowling_Skills: {
+      type: "checkbox",
+      val: {
+        Right_Arm: false,
+        Left_arm: false,
+        Fast: false,
+        Fast_Medium: false,
+        Medium_Fast: false,
+        Medium: false,
+        Slow: false,
+        Orthodox: false,
+        Legbreak: false,
+        Googly: false,
+        Offbreak: false,
+        Chinaman: false
+      }
+    },
+    Team: {
+      type: "checkbox",
+      val: {
+        "Rising Pune Supergiant": false,
+        "Mumbai Indians": false,
+        "Chennai Super Kings": false,
+        "Delhi Capitals": false,
+        "Sunrisers Hyderabad": false,
+        "Rajasthan Royals": false,
+        "Deccan Chargers": false,
+        "Kings XI Punjab": false,
+        "Royal Challengers Bangalore": false,
+        "Kolkata Knight Riders": false,
+        "Delhi Daredevils": false,
+        "Pune Warriors": false,
+        "Kochi Tuskers Kerala": false,
+        "Gujarat Lions": false
+      }
+    },
+    Country: {
+      type: "checkbox",
+      val: {
+        India: false,
+        England: false,
+        Sri_Lanka: false,
+        West_Indies: false,
+        New_Zealand: false,
+        Australia: false,
+        Pakistan: false,
+        South_Africa: false,
+        Bangladesh: false,
+        Netherlands: false,
+        Zimbabwea: false
+      }
+    }
   },
-  async loadTeamData(context) {
-    const teamData = await fetch("teams.json").then(res => res.json());
-    context.commit("loadTeamData", teamData);
-    context.commit("loadTeamFilters", teamData);
+  teamFields: {
+    Total_Wins: {
+      type: "range",
+      range: [5, 70]
+    },
+    Strenth: {
+      type: "radio",
+      val: ["Batting", "Bowling", "Fielding"]
+    },
+    Won_IPL: {
+      type: "switch",
+      val: false
+    }
+  },
+  venueFields: {
+    Seating_Capacity: {
+      type: "discrete_range",
+      range: [20000, 30000, 40000, 50000, 60000, 70000]
+    },
+    Pitch_Type: {
+      type: "checkbox",
+      val: {
+        Dusty: false,
+        Dead: false,
+        Green: false,
+        Slow: false,
+        Fast: false,
+        Seaming: false
+      }
+    }
+  },
+  ownerFields: {
+    Profession: {
+      type: "checkbox",
+      val: {
+        Dusty: false,
+        Dead: false
+      }
+    },
+    Pitch_Type: {
+      type: "checkbox",
+      val: {
+        Dusty: false,
+        Dead: false,
+        Green: false,
+        Slow: false,
+        Fast: false,
+        Seaming: false
+      }
+    }
   }
-};
+});

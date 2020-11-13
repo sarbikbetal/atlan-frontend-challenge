@@ -1,17 +1,13 @@
 <template>
   <transition name="fade">
     <div class="flex flex-wrap justify-between text-center">
-      <div
-        class="w-full px-4 pb-4"
-        v-for="(facet, key) in facets"
-        :key="key"
-      >
+      <div class="w-full px-4 pb-4" v-for="(facet, key) in facets" :key="key">
         <vue-slider
           v-if="facet.type == 'range'"
-          :min="facet.val[0]"
-          :max="facet.val[1]"
-          :marks="[facet.val[0], facet.val[1]]"
-          :value="facetData[key] || [facet.val[0], facet.val[1]]"
+          :min="facet.range[0]"
+          :max="facet.range[1]"
+          :marks="[facet.range[0], facet.range[1]]"
+          :value="facetData[key] || [facet.range[0], facet.range[1]]"
           @change="handleSliderChange(key, $event)"
           :enable-cross="false"
           :lazy="true"
@@ -22,7 +18,15 @@
             borderColor: 'var(--secondary)',
           }"
         ></vue-slider>
-        <label>{{ key }}</label>
+        <label v-if="facet.type == 'range'">{{ key }}</label>
+
+        <div class="flex flex-wrap" v-if="facet.type == 'checkbox'">
+          <span class="w-full">{{ key.replace("_", " ") }}</span>
+          <span class="m-2" v-for="(value, key) in facet.val" :key="key">
+            <input type="checkbox" class="filled-in" :value="value" />
+            <label>{{ key.replace("_", " ") }}</label>
+          </span>
+        </div>
       </div>
     </div>
   </transition>
@@ -31,6 +35,7 @@
 <script>
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/material.css";
+
 export default {
   name: "facetInputs",
   components: {
