@@ -9,7 +9,7 @@
           :type="selectedFilter"
           :facets="getFacets"
         />
-        <span class="text-3xl" v-else> not implemented</span>
+        <span class="text-xl" v-else> not implemented</span>
       </div>
     </transition>
   </div>

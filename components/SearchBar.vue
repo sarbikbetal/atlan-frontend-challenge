@@ -69,12 +69,7 @@ export default {
     },
     setFilter(entity) {
       this.selectedEntity = entity;
-      if (this.term) this.updateURL();
-      console.log(this.selectedEntity);
-    },
-    closeChooser() {
-      console.log("hello");
-      if (this.isChooserOpen) this.isChooserOpen = false;
+      this.updateURL();
     },
   },
 };

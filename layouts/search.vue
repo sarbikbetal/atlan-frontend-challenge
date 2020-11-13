@@ -6,13 +6,16 @@
           <span class="text-2xl hidden md:inline">Discover IPL</span>
         </NuxtLink>
         <searchBar />
-        <themeSwitcher class="ml-3" />
+        <themeSwitcher class="ml-3 hidden md:inline" />
+      </template>
+      <template v-slot:list>
+        <facetBar />
       </template>
     </drawer>
 
     <div class="flex pt-16">
       <aside
-        class="hidden md:flex md:w-2/5 lg:w-1/4 xl:w-1/5 max-w-sm bg-blue-300"
+        class="hidden md:flex md:w-2/5 lg:w-1/4 xl:w-1/5 max-w-sm"
       >
         <facetBar />
       </aside>
