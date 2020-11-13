@@ -23,9 +23,15 @@
         <div class="flex flex-wrap" v-if="facet.type == 'checkbox'">
           <span class="w-full">{{ key.replace("_", " ") }}</span>
           <span class="m-2" v-for="(value, key) in facet.val" :key="key">
-            <input type="checkbox" class="filled-in" :value="value" />
-            <label>{{ key.replace("_", " ") }}</label>
+            <PrettyCheck class="p-default p-curve p-pulse">{{
+              value.replace("_", " ")
+            }}</PrettyCheck>
           </span>
+        </div>
+
+        <div class="inline" v-if="facet.type == 'switch'">
+          <span class="pr-4">{{ key.replace("_", " ") }}</span>
+          <PrettyCheck class="p-default p-round p-pulse" />
         </div>
       </div>
     </div>
@@ -34,12 +40,16 @@
 
 <script>
 import VueSlider from "vue-slider-component";
+import PrettyCheck from "pretty-checkbox-vue/check";
+import PrettyRadio from "pretty-checkbox-vue/radio";
+
 import "vue-slider-component/theme/material.css";
 
 export default {
   name: "facetInputs",
   components: {
     VueSlider,
+    PrettyCheck,
   },
   props: {
     type: String,
@@ -70,6 +80,7 @@ export default {
 </script>
 
 <style>
+@import "pretty-checkbox/dist/pretty-checkbox.min.css";
 .fade-enter-active {
   transition: all 0.3s;
 }

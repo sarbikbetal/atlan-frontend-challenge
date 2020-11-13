@@ -74,12 +74,11 @@ export const state = () => ({
       range: [5, 70]
     },
     Strenth: {
-      type: "radio",
+      type: "checkbox",
       val: ["Batting", "Bowling", "Fielding"]
     },
     Won_IPL: {
       type: "switch",
-      val: false
     }
   },
   venueFields: {
