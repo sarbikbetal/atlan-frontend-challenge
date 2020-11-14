@@ -99,6 +99,7 @@ export default {
     },
     handleSliderChange(key, value) {
       this.facetData[key] = value;
+      this.facetData.type = this.$route.query.type;
       this.$router.push({
         path: this.$route.path,
         query: { ...this.$route.query, ...this.facetData },
