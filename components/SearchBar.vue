@@ -58,18 +58,24 @@ export default {
     };
   },
   methods: {
-    updateURL() {
+    /**  Here we want to preserve other facet filters */
+    search() {
+      let { term, type, ...details } = this.$route.query;
       this.$router.push({
         path: "/search",
-        query: { term: this.term, type: this.selectedEntity },
+        query: { term: this.term, type: this.selectedEntity, ...details },
       });
     },
-    search() {
-      this.updateURL();
-    },
+
+    /** Here we are discarding the already set facet filters */
     setFilter(entity) {
-      this.selectedEntity = entity;
-      this.updateURL();
+      if (this.selectedEntity != entity) {
+        this.selectedEntity = entity;
+        this.$router.push({
+          path: "/search",
+          query: { term: this.term, type: entity },
+        });
+      }
     },
   },
 };

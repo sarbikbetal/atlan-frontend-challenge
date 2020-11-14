@@ -8,7 +8,7 @@
             :max="facet.range[1]"
             :marks="[facet.range[0], facet.range[1]]"
             :value="facetData[key] || [facet.range[0], facet.range[1]]"
-            @change="handleSliderChange(key, $event)"
+            @change="handleFacetChange(key, $event)"
             :enable-cross="false"
             :lazy="true"
             contained="true"
@@ -17,7 +17,7 @@
               borderColor: 'var(--secondary)',
             }"
           />
-          <label>{{ key.replace("_", " ") }}</label>
+          <label>{{ key }}</label>
         </div>
 
         <div class="text-center" v-if="facet.type == 'discrete_range'">
@@ -27,7 +27,7 @@
             :interval="facet.interval"
             :marks="[facet.range[0], facet.range[1]]"
             :value="facetData[key] || [facet.range[0], facet.range[1]]"
-            @change="handleSliderChange(key, $event)"
+            @change="handleFacetChange(key, $event)"
             :enable-cross="false"
             :lazy="true"
             contained="true"
@@ -44,10 +44,13 @@
           :title="key.replace('_', ' ')"
           :expanded="facet.open"
         >
-          <div class="m-2" v-for="(value, key) in facet.val" :key="key">
-            <PrettyCheck class="p-default p-curve p-pulse">{{
-              value.replace("_", " ")
-            }}</PrettyCheck>
+          <div class="m-2" v-for="(value, idx) in facet.val" :key="idx">
+            <PrettyCheck
+              @change="handleFacetChange(value, $event)"
+              :checked="facetData[value] == 'true'"
+              class="p-default p-curve p-pulse"
+              >{{ value.replace("_", " ") }}</PrettyCheck
+            >
           </div>
         </collapsible>
 
@@ -55,7 +58,11 @@
           <span class="pr-4 text-lg">{{ key.replace("_", " ") }}</span>
           <div class="flex-grow" />
           <div>
-            <PrettyCheck class="p-default p-round p-pulse" />
+            <PrettyCheck
+              @change="handleFacetChange(key, $event)"
+              :checked="facetData[key] == 'true'"
+              class="p-default p-round p-pulse"
+            />
           </div>
         </div>
       </div>
@@ -86,24 +93,32 @@ export default {
   },
   data: function () {
     return {
-      facetData: { ...this.$route.query },
+      facetState: { ...this.$route.query },
     };
   },
-  methods: {
-    getValues() {
-      let facetData = {};
-      for (const key in this.facets) {
-        facetData[key] = this.facets[key].val;
-      }
-      return facetData;
+  computed: {
+    facetData() {
+      return this.$route.query;
     },
-    handleSliderChange(key, value) {
-      this.facetData[key] = value;
-      this.facetData.type = this.$route.query.type;
+  },
+  methods: {
+    handleFacetChange(key, value) {
+      this.facetState.term = this.$route.query.term;
+      this.facetState.type = this.$route.query.type;
+      this.facetState[key] = value;
       this.$router.push({
-        path: this.$route.path,
-        query: { ...this.$route.query, ...this.facetData },
+        query: { ...this.facetState },
       });
+      console.log(key, value);
+    },
+  },
+  watch: {
+    type: function (newVal, oldVal) {
+      if (newVal != oldVal) {
+        this.facetState = {};
+        this.facetState.term = this.$route.query.term;
+        this.facetState.type = this.$route.query.type;
+      }
     },
   },
 };
