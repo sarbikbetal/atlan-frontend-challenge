@@ -2,9 +2,9 @@
   <div class="searchbar flex-1 flex md:max-w-lg lg:max-w-xl items-center">
     <button
       @click="isChooserOpen = !isChooserOpen"
-      class="search-entity-select relative focus:outline-none"
+      class="search-entity-select focus:outline-none"
     >
-      <span>{{ selectedEntity }}</span>
+      <span class="pl-2">{{ selectedEntity }}</span>
       <svg class="w-2 h-2 ml-2" viewBox="0 0 412 232">
         <path
           d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
@@ -32,7 +32,7 @@
       placeholder="Search anything..."
     />
     <button @click="search" class="search-btn focus:outline-none">
-      <svg class="w-6 h-6 m-2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 my-2 mx-3" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none" />
         <path
           fill="var(--text)"
@@ -93,7 +93,7 @@ export default {
 }
 .searchbar {
   background-color: var(--primary);
-  @apply rounded-lg;
+  @apply rounded-full;
 }
 .searchbar:focus {
   background-color: var(--primary-light);
@@ -101,17 +101,18 @@ export default {
 
 .search-btn:hover,
 .search-btn:focus {
-  @apply rounded-lg;
+  @apply rounded-full;
   background-color: var(--primary-light);
 }
 .search-entity-select {
   @apply p-2;
   @apply flex;
+  @apply relative;
   @apply items-center;
   border-right: transparent 2px solid;
 }
 .search-entity-select:hover {
-  @apply rounded;
+  @apply rounded-full;
   background-color: var(--primary-light);
 }
 .search-entity-chooser {
@@ -132,7 +133,7 @@ export default {
   @apply px-4;
   @apply py-2;
   @apply flex;
-  @apply rounded-lg;
+  @apply rounded;
   @apply bg-transparent;
   color: var(--text);
 }
