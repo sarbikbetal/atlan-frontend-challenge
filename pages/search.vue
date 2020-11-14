@@ -1,13 +1,20 @@
 <template>
-  <span>Filtered</span>
+  <div class="block p-4">
+    <span class="text-2xl font-bold">{{ getSearchString }}</span>
+  </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      term: this.$route.query.term,
-    };
+  computed: {
+    getSearchString() {
+      let term = this.$route.query.term;
+      let type = this.$route.query.type;
+      let str = "You have searched";
+      if (term) str += ` for ${term}`;
+      if (type) str += ` in ${type}`;
+      return str + ".";
+    },
   },
   layout: "search",
   transition: "fade",

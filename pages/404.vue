@@ -35,9 +35,6 @@ h2 {
   color: var(--text);
 }
 .board {
-  background-color: var(--board);
-}
-body {
-  background-color: var(--primary);
+  background-color: var(--header-bg-color);
 }
 </style>

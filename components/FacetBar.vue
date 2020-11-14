@@ -1,7 +1,7 @@
 <template>
-  <div class="facet-wrapper w-full">
+  <div class="facet-wrapper w-full" v-if="isFilterApplied">
     <transition name="fade">
-      <div class="facet-container" v-if="isFilterApplied">
+      <div class="facet-container">
         <span class="text-2xl pl-4">Filters </span>
         <facetInputs
           class="mt-3"

@@ -29,6 +29,11 @@ export default {
   @apply rounded-b;
   @apply shadow-lg;
   background-color: var(--primary);
+  transition: all 300ms;
+  cursor: pointer;
+}
+.card:hover {
+  @apply shadow-xl;
 }
 .card .card-image {
   @apply rounded-t-xl;

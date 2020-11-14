@@ -44,11 +44,11 @@
           :title="key.replace('_', ' ')"
           :expanded="facet.open"
         >
-          <p class="m-2" v-for="(value, key) in facet.val" :key="key">
+          <div class="m-2" v-for="(value, key) in facet.val" :key="key">
             <PrettyCheck class="p-default p-curve p-pulse">{{
               value.replace("_", " ")
             }}</PrettyCheck>
-          </p>
+          </div>
         </collapsible>
 
         <div class="flex items-center" v-if="facet.type == 'switch'">

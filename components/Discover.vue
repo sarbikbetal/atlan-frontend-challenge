@@ -17,7 +17,7 @@
       <div class="flex flex-wrap justify-evenly text-center">
         <div
           class="p-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-          v-for="site in 4"
+          v-for="site in 5"
           :key="site"
         >
           <card
@@ -61,7 +61,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active {
   transition: all 0.3s;
 }

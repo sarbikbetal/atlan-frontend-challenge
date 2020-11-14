@@ -15,12 +15,12 @@
 
     <div class="flex pt-16">
       <aside
-        class="hidden md:w-2/5 lg:w-1/4 xl:w-1/5 max-w-sm"
+        class="hidden md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-sm flex-none"
         :class="isFiltered ? 'md:flex' : 'hidden'"
       >
         <facetBar />
       </aside>
-      <div class="w-full flex-grow bg-gray-500">
+      <div class="w-full flex-grow">
         <Nuxt v-if="isFiltered" />
         <Discover v-else />
       </div>

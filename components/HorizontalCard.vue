@@ -29,8 +29,12 @@ export default {
   @apply rounded-r;
   @apply shadow-lg;
   background-color: var(--primary);
+  transition: all 300ms;
+  cursor: pointer;
 }
-
+.horizontal-card:hover {
+  @apply shadow-xl;
+}
 .horizontal-card .card-image {
   @apply absolute;
   @apply rounded-l-xl;
