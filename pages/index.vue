@@ -1,10 +1,5 @@
 <template>
   <div>
-    <themeSwitcher class="absolute z-10 top-0 right-0 mt-4 mr-4" />
-    <hero>
-      <h1 class="text-4xl text-gray-200">Discover IPL</h1>
-      <searchBar />
-    </hero>
     <div class="container my-2">
       <span class="text-3xl">Trending players</span>
     </div>
@@ -45,6 +40,7 @@ import searchBar from "~/components/SearchBar";
 import themeSwitcher from "~/components/ThemeSwitcher";
 
 export default {
+  name: "IndexPage",
   components: {
     carousel,
     horizontalCard,
@@ -53,6 +49,7 @@ export default {
     card,
     hero,
   },
+  layout: "search",
   transition: "fade",
   data: function () {
     return {

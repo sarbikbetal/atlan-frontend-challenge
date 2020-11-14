@@ -1,17 +1,5 @@
 <template>
-  <span
-    >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe optio nisi
-    impedit sequi temporibus nihil quod consequuntur odit, numquam, eos ea
-    praesentium natus ipsum at illo dolorem! Mollitia ducimus maiores
-    necessitatibus totam veritatis adipisci praesentium est hic assumenda sed,
-    nulla facilis placeat sequi! Expedita iusto ullam adipisci sed cumque
-    quaerat repudiandae sapiente vitae veniam sunt, ratione illo, inventore
-    impedit voluptas minus ex tempora in facere dolores quo? Aperiam minima
-    explicabo a esse facilis? Facere odio nulla reprehenderit, veritatis in
-    commodi magni. Saepe illo, sed earum temporibus aspernatur quis repellendus
-    hic quia iusto dolore a magni accusantium, quisquam ullam architecto
-    non!</span
-  >
+  <span>Filtered</span>
 </template>
 
 <script>

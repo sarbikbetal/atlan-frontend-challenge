@@ -15,12 +15,14 @@
 
     <div class="flex pt-16">
       <aside
-        class="hidden md:flex md:w-2/5 lg:w-1/4 xl:w-1/5 max-w-sm"
+        class="hidden md:w-2/5 lg:w-1/4 xl:w-1/5 max-w-sm"
+        :class="isFiltered ? 'md:flex' : 'hidden'"
       >
         <facetBar />
       </aside>
       <div class="w-full flex-grow bg-gray-500">
-        <Nuxt />
+        <Nuxt v-if="isFiltered" />
+        <IndexPage v-else />
       </div>
     </div>
   </div>
@@ -31,7 +33,8 @@ import searchBar from "~/components/SearchBar";
 import facetBar from "~/components/FacetBar";
 import drawer from "~/components/Drawer";
 import themeSwitcher from "~/components/ThemeSwitcher";
-import Drawer from "~/components/Drawer.vue";
+import Drawer from "~/components/Drawer";
+import IndexPage from "~/pages/index";
 
 export default {
   name: "navbar",
@@ -40,9 +43,20 @@ export default {
     facetBar,
     drawer,
     themeSwitcher,
+    IndexPage,
   },
   data: function () {
     return {};
+  },
+  computed: {
+    isFiltered() {
+      if (
+        (this.$route.query.type == "All" || !this.$route.query.type) &&
+        !this.$route.query.term
+      )
+        return false;
+      else return true;
+    },
   },
 };
 </script>
