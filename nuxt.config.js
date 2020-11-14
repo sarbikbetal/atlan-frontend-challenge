@@ -37,7 +37,7 @@ export default {
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
-        name: "search",
+        name: "srch",
         path: "/",
         component: resolve(__dirname, "pages/search.vue")
       });

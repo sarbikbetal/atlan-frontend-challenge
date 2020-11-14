@@ -113,10 +113,3 @@ export const mutations = {
     state.routeQuery = query;
   }
 };
-
-export const getters = {
-  isFacetActive: state => {
-    let { term, type, ...others } = state.routeQuery;
-    return Object.keys(others).length != 0;
-  }
-};
