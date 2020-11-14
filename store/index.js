@@ -104,5 +104,19 @@ export const state = () => ({
       val: ["Male", "Female"],
       open: true
     }
-  }
+  },
+  routeQuery: {}
 });
+
+export const mutations = {
+  setRouteQuery(state, query) {
+    state.routeQuery = query;
+  }
+};
+
+export const getters = {
+  isFacetActive: state => {
+    let { term, type, ...others } = state.routeQuery;
+    return Object.keys(others).length != 0;
+  }
+};

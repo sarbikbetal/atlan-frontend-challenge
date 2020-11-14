@@ -1,20 +1,6 @@
 <template>
   <transition name="fade">
     <div class="flex flex-wrap justify-between">
-      <div class="w-full flex justify-center py-2">
-        <button
-          class="clear-all-btn focus:outline-none flex px-2 py-1"
-          @click="clearFilters"
-        >
-          <svg class="h-6 w-6" viewBox="0 0 24 24">
-            <path
-              fill="#f56565"
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-          <span>Clear</span>
-        </button>
-      </div>
       <div class="w-full px-4 pb-4" v-for="(facet, key) in facets" :key="key">
         <div class="text-center" v-if="facet.type == 'range'">
           <vue-slider
@@ -105,11 +91,6 @@ export default {
     type: String,
     facets: Object,
   },
-  data: function () {
-    return {
-      facetState: { ...this.$route.query },
-    };
-  },
   computed: {
     facetData() {
       return this.$route.query;
@@ -117,31 +98,26 @@ export default {
   },
   methods: {
     handleFacetChange(key, value) {
-      this.facetState.term = this.$route.query.term;
-      this.facetState.type = this.$route.query.type;
-      this.facetState[key] = value;
-      this.$router.push({
-        query: { ...this.facetState },
-      });
-      console.log(key, value);
-    },
-    clearFilters() {
-      this.facetState = {};
-      this.facetState.term = this.$route.query.term;
-      this.facetState.type = this.$route.query.type;
-      this.$router.push({
-        query: { ...this.facetState },
-      });
+      let routeQuery = this.$store.state.routeQuery;
+      routeQuery.term = this.$route.query.term;
+      routeQuery.type = this.$route.query.type;
+      routeQuery[key] = value;
+      this.$store.commit("setRouteQuery", routeQuery);
+      this.$router.push({ query: routeQuery });
     },
   },
   watch: {
     type: function (newVal, oldVal) {
       if (newVal != oldVal) {
-        this.facetState = {};
-        this.facetState.term = this.$route.query.term;
-        this.facetState.type = this.$route.query.type;
+        let newRouteQuery = {};
+        newRouteQuery.term = this.$route.query.term;
+        newRouteQuery.type = this.$route.query.type;
+        this.$store.commit("setRouteQuery", newRouteQuery);
       }
     },
+  },
+  created() {
+    this.$store.commit("setRouteQuery", this.$route.query);
   },
 };
 </script>
