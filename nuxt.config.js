@@ -34,9 +34,22 @@ export default {
     "@nuxtjs/pwa"
   ],
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: "search",
+        path: "/",
+        component: resolve(__dirname, "pages/search.vue")
+      });
+      routes.push({
+        name: "Error",
+        path: "*",
+        component: resolve(__dirname, "pages/404.vue")
+      });
+    }
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
-  generate: {
-    fallback: true
-  }
+  generate: {}
 };

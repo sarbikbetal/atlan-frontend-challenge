@@ -40,7 +40,7 @@ import searchBar from "~/components/SearchBar";
 import themeSwitcher from "~/components/ThemeSwitcher";
 
 export default {
-  name: "IndexPage",
+  name: "Discover",
   components: {
     carousel,
     horizontalCard,
@@ -49,7 +49,6 @@ export default {
     card,
     hero,
   },
-  layout: "search",
   transition: "fade",
   data: function () {
     return {

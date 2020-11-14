@@ -22,7 +22,7 @@
       </aside>
       <div class="w-full flex-grow bg-gray-500">
         <Nuxt v-if="isFiltered" />
-        <IndexPage v-else />
+        <Discover v-else />
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ import facetBar from "~/components/FacetBar";
 import drawer from "~/components/Drawer";
 import themeSwitcher from "~/components/ThemeSwitcher";
 import Drawer from "~/components/Drawer";
-import IndexPage from "~/pages/index";
+import Discover from "~/components/Discover";
 
 export default {
   name: "navbar",
@@ -43,7 +43,7 @@ export default {
     facetBar,
     drawer,
     themeSwitcher,
-    IndexPage,
+    Discover,
   },
   data: function () {
     return {};
