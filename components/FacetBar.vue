@@ -2,7 +2,23 @@
   <div class="facet-wrapper w-full" v-if="isFilterApplied">
     <transition name="fade">
       <div class="facet-container">
-        <span class="text-2xl pl-4">Filters</span>
+        <div class="w-full flex items-center py-2">
+          <span class="text-2xl pl-4">Filters</span>
+          <span class="flex-grow"></span>
+          <button
+            v-if="isFacetActive()"
+            class="clear-all-btn focus:outline-none flex px-2 py-1 mr-4"
+            @click="clearFilters"
+          >
+            <svg class="h-6 w-6" viewBox="0 0 24 24">
+              <path
+                fill="#f56565"
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+            <span>Clear</span>
+          </button>
+        </div>
         <facetInputs
           class="mt-3"
           v-if="getFacets"
@@ -25,15 +41,15 @@ export default {
     facetInputs,
   },
   computed: {
-    isFilterApplied: function () {
+    isFilterApplied() {
       return filterTags.includes(this.$route.query.type);
     },
-    entityType: function () {
+    entityType() {
       return filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
         : "";
     },
-    getFacets: function () {
+    getFacets() {
       let zym = this.$store.state;
       let type = filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
@@ -44,6 +60,19 @@ export default {
       else if (type == "Venues") return this.$store.state.venueFields;
       else if (type == "Owners") return this.$store.state.ownerFields;
       else return null;
+    },
+  },
+  methods: {
+    clearFilters() {
+      let newRouteQuery = {};
+      newRouteQuery.term = this.$route.query.term;
+      newRouteQuery.type = this.$route.query.type;
+      this.$store.commit("setRouteQuery", newRouteQuery);
+      this.$router.push({ query: newRouteQuery });
+    },
+    isFacetActive() {
+      let { term, type, ...others } = this.$store.state.routeQuery;
+      return Object.keys(others).length != 0;
     },
   },
 };
