@@ -17,7 +17,7 @@
               borderColor: 'var(--secondary)',
             }"
           />
-          <label>{{ key }}</label>
+          <label>{{ key.replace("_", " ") }}</label>
         </div>
 
         <div class="text-center" v-if="facet.type == 'discrete_range'">

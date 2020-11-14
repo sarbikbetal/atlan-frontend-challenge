@@ -12,7 +12,8 @@ export default {
       let type = this.$route.query.type;
       let str = "You have searched";
       if (term) str += ` for ${term}`;
-      if (type) str += ` in ${type}`;
+      if (type == "All") str += ` in everything`;
+      else if (type) str += ` in ${type}`;
       return str + ".";
     },
   },

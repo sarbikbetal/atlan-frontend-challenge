@@ -82,10 +82,10 @@ export const state = () => ({
     }
   },
   venueFields: {
-    Seating_Capacity: {
+    "Seating Capacity (K)": {
       type: "discrete_range",
-      range: [20000, 70000],
-      interval: 10000
+      range: [20, 70],
+      interval: 10
     },
     Pitch_Type: {
       type: "checkbox",
@@ -97,6 +97,11 @@ export const state = () => ({
     Profession: {
       type: "checkbox",
       val: ["Bollywood", "Business"],
+      open: true
+    },
+    Gender: {
+      type: "checkbox",
+      val: ["Male", "Female"],
       open: true
     }
   }
