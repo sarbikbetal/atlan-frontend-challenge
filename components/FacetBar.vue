@@ -2,11 +2,11 @@
   <div class="facet-wrapper w-full" v-if="isFilterApplied">
     <transition name="fade">
       <div class="facet-container">
-        <span class="text-2xl pl-4">Filters </span>
+        <span class="text-2xl pl-4">Filters</span>
         <facetInputs
           class="mt-3"
           v-if="getFacets"
-          :type="selectedFilter"
+          :type="entityType"
           :facets="getFacets"
         />
         <span class="text-xl" v-else> not implemented</span>
@@ -24,14 +24,11 @@ export default {
   components: {
     facetInputs,
   },
-  data: function () {
-    return {};
-  },
   computed: {
     isFilterApplied: function () {
       return filterTags.includes(this.$route.query.type);
     },
-    selectedFilter: function () {
+    entityType: function () {
       return filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
         : "";

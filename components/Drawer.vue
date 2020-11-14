@@ -109,7 +109,7 @@ export default {
   @apply px-2;
   @apply py-1;
   color: var(--text);
-  border: 1px solid var(--text);
+  border: 2px solid var(--text);
 }
 .filter-btn:hover,
 .filter-btn:focus {
