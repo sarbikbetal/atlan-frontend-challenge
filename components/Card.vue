@@ -38,12 +38,6 @@ export default {
   background-color: var(--primary);
   color: var(--text);
 }
-.text-strong {
-  color: var(--text-strong);
-}
-.text-secondary {
-  color: var(--secondary);
-}
 .card:hover {
   @apply shadow-lg;
 }

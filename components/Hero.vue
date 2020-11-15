@@ -50,12 +50,6 @@ export default {
 </script>
 
 <style scoped>
-.text {
-  color: var(--text);
-}
-.text-strong {
-  color: var(--text-strong);
-}
 .secondary {
   background-color: var(--secondary);
 }

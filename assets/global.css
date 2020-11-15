@@ -45,3 +45,13 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+
+.text {
+  color: var(--text);
+}
+.text-strong {
+  color: var(--text-strong);
+}
+.text-secondary {
+  color: var(--secondary);
+}

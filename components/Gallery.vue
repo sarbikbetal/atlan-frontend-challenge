@@ -53,15 +53,6 @@ export default {
 </script>
 
 <style scoped>
-.text {
-  color: var(--text);
-}
-.text-strong {
-  color: var(--text-strong);
-}
-.text-secondary {
-  color: var(--secondary);
-}
 .bg-blend {
   background-color: var(--header-bg-color);
   border-color: var(--primary);
