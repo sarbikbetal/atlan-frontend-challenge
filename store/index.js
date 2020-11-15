@@ -17,52 +17,46 @@ export const state = () => ({
     Bowling_Skills: {
       type: "checkbox",
       val: [
-        "Right_Arm",
-        "Left_arm",
+        "Chinaman",
         "Fast",
         "Fast_Medium",
-        "Medium_Fast",
-        "Medium",
-        "Slow",
-        "Orthodox",
-        "Legbreak",
         "Googly",
+        "Left_arm",
+        "Legbreak",
+        "Medium",
+        "Medium_Fast",
         "Offbreak",
-        "Chinaman"
+        "Orthodox",
+        "Right_Arm",
+        "Slow"
       ]
     },
     Team: {
       type: "checkbox",
       val: [
-        "Rising Pune Supergiant",
-        "Mumbai Indians",
         "Chennai Super Kings",
         "Delhi Capitals",
-        "Sunrisers Hyderabad",
-        "Rajasthan Royals",
-        "Deccan Chargers",
         "Kings XI Punjab",
-        "Royal Challengers Bangalore",
         "Kolkata Knight Riders",
-        "Delhi Daredevils",
-        "Pune Warriors",
-        "Kochi Tuskers Kerala",
-        "Gujarat Lions"
+        "Mumbai Indians",
+        "Rajasthan Royals",
+        "Royal Challengers Bangalore",
+        "Sunrisers Hyderabad"
       ]
     },
     Country: {
       type: "checkbox",
       val: [
         "India",
-        "England",
-        "Sri_Lanka",
-        "West_Indies",
-        "New_Zealand",
         "Australia",
+        "Bangladesh",
+        "England",
+        "Netherlands",
+        "New_Zealand",
         "Pakistan",
         "South_Africa",
-        "Bangladesh",
-        "Netherlands",
+        "Sri_Lanka",
+        "West_Indies",
         "Zimbabwea"
       ]
     }
@@ -89,7 +83,7 @@ export const state = () => ({
     },
     "Pitch Type": {
       type: "checkbox",
-      val: ["Dusty", "Dead", "Green", "Slow", "Fast", "Seaming"],
+      val: ["Dead", "Dusty", "Fast", "Green", "Seaming", "Slow"],
       open: true
     }
   },
@@ -101,7 +95,7 @@ export const state = () => ({
     },
     Gender: {
       type: "checkbox",
-      val: ["Male", "Female"],
+      val: ["Female", "Male"],
       open: true
     }
   },
