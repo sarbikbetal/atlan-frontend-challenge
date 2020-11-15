@@ -2,9 +2,15 @@
   <div class="facet-wrapper w-full" v-if="isFilterApplied">
     <transition name="fade">
       <div class="facet-container">
-        <div class="w-full flex items-center py-2">
+        <div class="w-full flex items-center justify-between py-2">
           <span class="text-xl text-strong font-bold pl-5">Filters</span>
-          <span class="flex-grow" />
+
+          <button class="sort-btn focus:outline-none flex px-2 py-1 mx-4">
+            <span class="pr-1">Sort</span>
+            <svg class="h-6 w-6" viewBox="0 0 24 24">
+              <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" />
+            </svg>
+          </button>
 
           <!-- show the clear button only when facets are applied -->
           <button
@@ -103,5 +109,17 @@ export default {
 }
 .clear-filter-btn:hover {
   background-color: #f565652d;
+}
+
+.sort-btn {
+  @apply rounded-md;
+  color:var(--text);
+  background-color: #4299e11f;
+}
+.sort-btn path {
+  fill:var(--text);
+}
+.sort-btn:hover {
+  background-color: #4299e141;
 }
 </style>
