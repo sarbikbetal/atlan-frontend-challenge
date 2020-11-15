@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Hero />
     <div class="container my-2">
       <span class="text-3xl">Trending players</span>
     </div>
@@ -28,6 +29,7 @@
         </div>
       </div>
     </div>
+    <Gallery />
   </div>
 </template>
 
@@ -35,6 +37,8 @@
 import Carousel from "~/components/Carousel";
 import HorizontalCard from "~/components/HorizontalCard";
 import Card from "~/components/Card";
+import Gallery from "~/components/Gallery";
+import Hero from "~/components/Hero";
 
 export default {
   name: "Discover",
@@ -42,6 +46,8 @@ export default {
     Carousel,
     HorizontalCard,
     Card,
+    Hero,
+    Gallery,
   },
   transition: "fade",
   data: function () {
