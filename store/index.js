@@ -113,3 +113,9 @@ export const mutations = {
     state.routeQuery = query;
   }
 };
+
+export const getters = {
+  getRouteQuery: state => {
+    return { ...state.routeQuery };
+  }
+};

@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     handleFacetChange(key, value) {
-      let routeQuery = this.$store.state.routeQuery;
+      let routeQuery = this.$store.getters.getRouteQuery;
       routeQuery.term = this.$route.query.term;
       routeQuery.type = this.$route.query.type;
       routeQuery[key] = value;
