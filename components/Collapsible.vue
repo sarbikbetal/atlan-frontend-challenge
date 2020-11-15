@@ -7,7 +7,7 @@
       class="focus:outline-none flex w-full justify-between items-center py-2"
       @click="isExpanded = !isExpanded"
     >
-      <span class="text-lg">{{ title }}</span>
+      <span class="text-lg text-strong">{{ title }}</span>
 
       <!-- Reverse the direction of chevron depending on the expaneded state -->
       <svg

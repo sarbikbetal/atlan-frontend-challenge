@@ -24,7 +24,7 @@
 
 body {
   background-color: var(--board);
-  color: var(--text-strong);
+  color: var(--text);
   transition: all 0.4s;
 }
 

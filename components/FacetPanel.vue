@@ -3,13 +3,13 @@
     <transition name="fade">
       <div class="facet-container">
         <div class="w-full flex items-center py-2">
-          <span class="text-2xl pl-4">Filters</span>
+          <span class="text-xl text-strong font-bold pl-5">Filters</span>
           <span class="flex-grow" />
 
           <!-- show the clear button only when facets are applied -->
           <button
             v-if="isFacetApplied()"
-            class="clear-all-btn focus:outline-none flex px-2 mr-4"
+            class="clear-filter-btn focus:outline-none flex px-2 py-1 mr-4"
             @click="clearFilters"
           >
             <span>Clear</span>
@@ -17,20 +17,20 @@
         </div>
 
         <!-- Show the actual inputs -->
-        <facetInputs class="mt-3" :type="getEntityType" :facets="getFacets" />
+        <FacetInputs class="mt-3" :type="getEntityType" :facets="getFacets" />
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-import facetInputs from "~/components/FacetInputs";
+import FacetInputs from "~/components/FacetInputs";
 
 const filterTags = ["Players", "Venues", "Teams", "Owners"];
 export default {
-  name: "facetBar",
+  name: "FacetPanel",
   components: {
-    facetInputs,
+    FacetInputs,
   },
   computed: {
     // Check if the search is narrowed down to an entity.
@@ -96,12 +96,12 @@ export default {
 .fade-move {
   transition: transform 0.2s;
 }
-.clear-all-btn {
-  @apply rounded-full;
-  border: 2px solid #f56565;
+.clear-filter-btn {
+  @apply rounded-md;
   color: #f56565;
+  background-color: #f5656515;
 }
-.clear-all-btn:hover {
+.clear-filter-btn:hover {
   background-color: #f565652d;
 }
 </style>

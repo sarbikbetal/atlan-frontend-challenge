@@ -3,22 +3,23 @@
     <Navigation>
       <template v-slot:navbar>
         <NuxtLink to="/">
-          <span class="text-2xl hidden md:inline">Discover IPL</span>
+          <span class="text-2xl text-strong font-bold hidden md:inline pr-4">Discover IPL</span>
         </NuxtLink>
         <SearchBar />
         <ThemeSwitcher class="ml-3 hidden md:inline" />
       </template>
       <template v-slot:list>
-        <facetBar />
+        <FacetPanel />
       </template>
     </Navigation>
 
     <div class="flex pt-16">
+      <!-- Hide the facetPanel if searched in all entities -->
       <aside
         class="hidden md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-sm flex-none"
-        :class="isFiltered ? 'md:flex' : 'hidden'"
+        :class="isShowingAll ? '' : 'md:flex'"
       >
-        <facetBar />
+        <FacetPanel />
       </aside>
       <div class="w-full flex-grow">
         <!-- render filtered content or the discover component -->
@@ -31,7 +32,7 @@
 
 <script>
 import SearchBar from "~/components/SearchBar";
-import facetBar from "~/components/FacetBar";
+import FacetPanel from "~/components/FacetPanel";
 import Navigation from "~/components/Navigation";
 import ThemeSwitcher from "~/components/ThemeSwitcher";
 import Discover from "~/components/Discover";
@@ -40,7 +41,7 @@ export default {
   name: "navbar",
   components: {
     SearchBar,
-    facetBar,
+    FacetPanel,
     Navigation,
     ThemeSwitcher,
     Discover,
@@ -57,6 +58,10 @@ export default {
       )
         return false;
       else return true;
+    },
+    // check if any the search is done on everythng
+    isShowingAll() {
+      return this.$route.query.type == "All" || !this.$route.query.type;
     },
   },
 };

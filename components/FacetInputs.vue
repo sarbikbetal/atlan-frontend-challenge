@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="flex flex-wrap justify-between">
       <!-- loop through all available facet controls -->
-      <div class="w-full px-4 pb-4" v-for="(facet, key) in facets" :key="key">
+      <div class="w-full px-5 pb-4" v-for="(facet, key) in facets" :key="key">
         <!-- Show range controls -->
         <div class="text-center" v-if="facet.type == 'range'">
           <vue-slider
@@ -19,7 +19,7 @@
               borderColor: 'var(--secondary)',
             }"
           />
-          <label>{{ key }}</label>
+          <label class="text-strong">{{ key }}</label>
         </div>
 
         <!-- Show range controls with discrete steps-->
@@ -39,7 +39,7 @@
               borderColor: 'var(--secondary)',
             }"
           />
-          <label>{{ key }}</label>
+          <label class="text-strong">{{ key }}</label>
         </div>
 
         <!-- Show the checkboxes in a collapsible -->
@@ -60,7 +60,9 @@
 
         <!-- Show the switch -->
         <div class="flex items-center" v-if="facet.type == 'switch'">
-          <span class="pr-4 text-lg">{{ key.replace("_", " ") }}</span>
+          <span class="pr-4 text-lg text-strong">{{
+            key.replace("_", " ")
+          }}</span>
           <div class="flex-grow" />
           <div>
             <PrettyCheck
@@ -84,7 +86,7 @@ import Collapsible from "~/components/Collapsible";
 import "vue-slider-component/theme/material.css";
 
 export default {
-  name: "facetInputs",
+  name: "FacetInputs",
   components: {
     VueSlider,
     PrettyCheck,

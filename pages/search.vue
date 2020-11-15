@@ -1,10 +1,20 @@
 <template>
   <div class="block p-4">
     <span class="text-2xl font-bold">{{ getSearchString }}</span>
+    <div class="flex flex-wrap px-4">
+      <Card
+        class="xl:w-1/4 md:w-1/2 p-4"
+        v-for="i in 8"
+        :key="i"
+        overline="ENTITY NAME"
+        title="Sample Title"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import Card from "~/components/Card";
 export default {
   computed: {
     getSearchString() {
@@ -16,6 +26,9 @@ export default {
       else if (type) str += ` in ${type}`;
       return str + ".";
     },
+  },
+  components: {
+    Card,
   },
   layout: "search",
   transition: "fade",

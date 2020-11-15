@@ -44,7 +44,7 @@
       :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
     >
       <NuxtLink to="/" @click="isOpen = false" class="drawer-header">
-        <span class="text-2xl"> Discover IPL </span>
+        <span class="text-2xl text-strong font-bold"> Discover IPL </span>
       </NuxtLink>
 
       <!-- Slot for elements in the drawer -->
