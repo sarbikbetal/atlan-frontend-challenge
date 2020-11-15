@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "collapsible",
+  name: "Collapsible",
   props: {
     expanded: Boolean,
     title: String,

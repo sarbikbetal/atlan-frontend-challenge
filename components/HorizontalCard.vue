@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "horizontalCard",
+  name: "HorizontalCard",
   props: {
     title: String,
     desc: String,

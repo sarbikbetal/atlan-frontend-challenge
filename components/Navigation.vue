@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: "drawer",
+  name: "Navigation",
   props: {
     open: Boolean,
   },

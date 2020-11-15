@@ -2,14 +2,14 @@
   <div class="carousel p-6 md:px-8 lg:px-10">
     <div class="thumb-container" @click="isAddFavOpen = false">
       <!-- Left scroll button -->
-      <fab @click.native="scrollLeft" class="scroll-btn left">
+      <FAB @click.native="scrollLeft" class="scroll-btn left">
         <svg viewBox="0 0 24 24" fill="black" width="18px" height="18px">
           <path
             fill="var(--text-strong)"
             d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"
           />
         </svg>
-      </fab>
+      </FAB>
 
       <section
         ref="carousel"
@@ -21,24 +21,24 @@
       </section>
 
       <!-- Right scroll button -->
-      <fab @click.native="scrollRight" class="scroll-btn right">
+      <FAB @click.native="scrollRight" class="scroll-btn right">
         <svg viewBox="0 0 24 24" width="18px" height="18px">
           <path
             fill="var(--text-strong)"
             d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"
           />
         </svg>
-      </fab>
+      </FAB>
     </div>
   </div>
 </template>
 
 <script >
-import fab from "~/components/Fab";
+import FAB from "~/components/Fab";
 export default {
-  name: "carousel",
+  name: "Carousel",
   components: {
-    fab,
+    FAB,
   },
   methods: {
     scrollLeft() {

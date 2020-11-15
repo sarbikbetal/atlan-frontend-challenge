@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "themeSwitcher",
+  name: "ThemeSwitcher",
   computed: {
     theme() {
       return this.$colorMode.preference;

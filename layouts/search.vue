@@ -1,17 +1,17 @@
 <template>
   <div>
-    <drawer>
+    <Navigation>
       <template v-slot:navbar>
         <NuxtLink to="/">
           <span class="text-2xl hidden md:inline">Discover IPL</span>
         </NuxtLink>
-        <searchBar />
-        <themeSwitcher class="ml-3 hidden md:inline" />
+        <SearchBar />
+        <ThemeSwitcher class="ml-3 hidden md:inline" />
       </template>
       <template v-slot:list>
         <facetBar />
       </template>
-    </drawer>
+    </Navigation>
 
     <div class="flex pt-16">
       <aside
@@ -29,20 +29,19 @@
 </template>
 
 <script>
-import searchBar from "~/components/SearchBar";
+import SearchBar from "~/components/SearchBar";
 import facetBar from "~/components/FacetBar";
-import drawer from "~/components/Drawer";
-import themeSwitcher from "~/components/ThemeSwitcher";
-import Drawer from "~/components/Drawer";
+import Navigation from "~/components/Navigation";
+import ThemeSwitcher from "~/components/ThemeSwitcher";
 import Discover from "~/components/Discover";
 
 export default {
   name: "navbar",
   components: {
-    searchBar,
+    SearchBar,
     facetBar,
-    drawer,
-    themeSwitcher,
+    Navigation,
+    ThemeSwitcher,
     Discover,
   },
   data: function () {

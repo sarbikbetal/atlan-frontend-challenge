@@ -7,15 +7,9 @@
           <span class="flex-grow"></span>
           <button
             v-if="isFacetActive()"
-            class="clear-all-btn focus:outline-none flex px-2 py-1 mr-4"
+            class="clear-all-btn focus:outline-none flex px-2 mr-4"
             @click="clearFilters"
           >
-            <svg class="h-6 w-6" viewBox="0 0 24 24">
-              <path
-                fill="#f56565"
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
             <span>Clear</span>
           </button>
         </div>
@@ -98,5 +92,13 @@ export default {
 }
 .fade-move {
   transition: transform 0.2s;
+}
+.clear-all-btn {
+  @apply rounded-full;
+  border: 2px solid #f56565;
+  color: #f56565;
+}
+.clear-all-btn:hover {
+  background-color: #f565652d;
 }
 </style>

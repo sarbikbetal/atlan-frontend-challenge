@@ -46,7 +46,7 @@
 <script>
 const tags = ["All", "Players", "Venues", "Teams", "Owners"];
 export default {
-  name: "searchBar",
+  name: "SearchBar",
   data: function () {
     return {
       term: this.$route.query.term || "",

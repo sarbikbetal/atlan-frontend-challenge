@@ -39,7 +39,7 @@
           <label>{{ key }}</label>
         </div>
 
-        <collapsible
+        <Collapsible
           v-if="facet.type == 'checkbox'"
           :title="key.replace('_', ' ')"
           :expanded="facet.open"
@@ -52,7 +52,7 @@
               >{{ value.replace("_", " ") }}</PrettyCheck
             >
           </div>
-        </collapsible>
+        </Collapsible>
 
         <div class="flex items-center" v-if="facet.type == 'switch'">
           <span class="pr-4 text-lg">{{ key.replace("_", " ") }}</span>
@@ -74,15 +74,13 @@
 import VueSlider from "vue-slider-component";
 import PrettyCheck from "pretty-checkbox-vue/check";
 import PrettyRadio from "pretty-checkbox-vue/radio";
-import collapsible from "~/components/Collapsible";
+import Collapsible from "~/components/Collapsible";
 
 import "vue-slider-component/theme/material.css";
-import Collapsible from "./Collapsible.vue";
 
 export default {
   name: "facetInputs",
   components: {
-    collapsible,
     VueSlider,
     PrettyCheck,
     Collapsible,
@@ -148,10 +146,5 @@ export default {
 .vue-slider-process,
 .vue-slider-mark-step {
   background-color: var(--secondary);
-}
-.clear-all-btn {
-  @apply rounded-full;
-  border: 2px solid #f56565;
-  color: #f56565;
 }
 </style>
