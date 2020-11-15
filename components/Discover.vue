@@ -1,18 +1,7 @@
 <template>
   <div>
     <Hero />
-    <div class="container my-2">
-      <span class="text-3xl">Trending players</span>
-    </div>
-    <Carousel>
-      <HorizontalCard
-        v-for="site in 7"
-        :key="site"
-        :thumbnail="url"
-        title="Player name"
-        desc="Description/Stats"
-      />
-    </Carousel>
+    <TopPlayers />
     <div class="container my-2">
       <span class="text-3xl">Mesmerising venues</span>
       <div class="flex flex-wrap justify-evenly text-center">
@@ -34,20 +23,18 @@
 </template>
 
 <script>
-import Carousel from "~/components/Carousel";
-import HorizontalCard from "~/components/HorizontalCard";
 import Card from "~/components/Card";
 import Gallery from "~/components/Gallery";
 import Hero from "~/components/Hero";
+import TopPlayers from "~/components/TopPlayers";
 
 export default {
   name: "Discover",
   components: {
-    Carousel,
-    HorizontalCard,
     Card,
     Hero,
     Gallery,
+    TopPlayers,
   },
   transition: "fade",
   data: function () {

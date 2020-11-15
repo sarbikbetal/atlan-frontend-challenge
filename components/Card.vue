@@ -1,12 +1,22 @@
 <template>
-  <div class="card w-64">
-    <img
-      class="card-image w-full object-cover"
-      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Ehj-XVft8TzqGuDvoS-IUwHaE6%26pid%3DApi&f=1"
-    />
-    <div class="flex flex-col p-2">
-      <div class="font-bold text-xl mb-2">{{ title }}</div>
-      <p class="text-base">{{ desc }}</p>
+  <div class="p-5 flex flex-grow-0">
+    <div class="card bg-gray-800 rounded-lg pb-4">
+      <img
+        class="h-40 rounded w-full object-cover object-center mb-6"
+        src="https://dummyimage.com/720x400"
+        alt="content"
+      />
+      <h3
+        class="tracking-widest px-6 text-secondary text-xs font-medium title-font"
+      >
+        TEAM NAME
+      </h3>
+      <h2 class="text-lg px-6 text-strong font-medium title-font mb-4">
+        Player Name
+      </h2>
+      <p class="leading-relaxed px-6 text-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
     </div>
   </div>
 </template>
@@ -23,19 +33,18 @@ export default {
 
 <style>
 .card {
-  @apply flex;
-  @apply flex-col;
-  @apply rounded-t-xl;
-  @apply rounded-b;
-  @apply shadow-lg;
+  min-width: 14rem;
+  @apply shadow;
   background-color: var(--primary);
-  transition: all 300ms;
-  cursor: pointer;
+  color: var(--text);
+}
+.text-strong {
+  color: var(--text-strong);
+}
+.text-secondary {
+  color: var(--secondary);
 }
 .card:hover {
-  @apply shadow-xl;
-}
-.card .card-image {
-  @apply rounded-t-xl;
+  @apply shadow-lg;
 }
 </style>

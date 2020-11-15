@@ -1,6 +1,6 @@
 <template>
   <div class="carousel p-6 md:px-8 lg:px-10">
-    <div class="thumb-container" @click="isAddFavOpen = false">
+    <div class="thumb-container items-center" @click="isAddFavOpen = false">
       <!-- Left scroll button -->
       <FAB @click.native="scrollLeft" class="scroll-btn left">
         <svg viewBox="0 0 24 24" fill="black" width="18px" height="18px">
@@ -14,9 +14,9 @@
       <!-- Main section -->
       <section
         ref="carousel"
-        class="flex items-center overflow-x-auto overflow-y-hidden no-scrollbar mx-6"
+        class="flex items-center overflow-x-auto overflow-y-hidden no-scrollbar -mx-4"
       >
-        <div class="flex items-center">
+        <div class="flex flex-no-wrap -m-4">
           <slot />
         </div>
       </section>
@@ -62,7 +62,6 @@ export default {
   @apply pb-2;
   @apply rounded-md;
   @apply relative;
-  @apply h-48;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
@@ -74,9 +73,7 @@ export default {
 }
 
 .scroll-btn {
-  @apply absolute;
   z-index: 3;
-  top: 4.5rem;
   transition: all 300ms;
 }
 .scroll-btn:hover {
