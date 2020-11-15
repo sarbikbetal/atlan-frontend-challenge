@@ -1,21 +1,16 @@
-# atlan-frontend
+# Atlan-frontend
+Atlan frontend intern hiring challenge
 
-## Build Setup
 
-```bash
-# install dependencies
-$ npm install
+### `Page load time : 2.45 seconds`
+Analysis via pingdom (Japan server) - [see results](https://tools.pingdom.com/#5d735c4557000000)
+![Pingdom results](./docs/pingdom.png)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+### `Time to interactive : 0.8 seconds`
+Analysis via lighthouse audit (Desktop)
+![Lighthouse audit](./docs/lighthouse.png)
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+## Steps taken to improve page load time
++ I did not use any UI library and used handcrafted Tailwind CSS components, that improved a lot of speed and decreased the bundle size with the help of purgecss.
++ Added the PWA to plugin for faster load times on subsequent visit.
++ Using formats like .webp helps optimize the images a lot but for now I have used dummy .png images, and as they are single coloured, they are quite smaller than jpeg.
