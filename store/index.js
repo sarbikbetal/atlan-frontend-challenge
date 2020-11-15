@@ -87,7 +87,7 @@ export const state = () => ({
       range: [20, 70],
       interval: 10
     },
-    Pitch_Type: {
+    "Pitch Type": {
       type: "checkbox",
       val: ["Dusty", "Dead", "Green", "Slow", "Fast", "Seaming"],
       open: true
