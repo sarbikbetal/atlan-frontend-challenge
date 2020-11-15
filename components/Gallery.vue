@@ -20,7 +20,7 @@
             <img
               alt="gallery"
               class="absolute inset-0 w-full h-full object-cover object-center rounded-lg"
-              src="https://dummyimage.com/600x300/308480/308480.png"
+              src="https://dummyimage.com/600x300/ccc/ccc.png"
             />
             <div
               class="px-8 py-10 relative w-full border-4 bg-blend opacity-0 hover:opacity-100 rounded transition-all duration-500"

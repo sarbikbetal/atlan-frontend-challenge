@@ -2,23 +2,9 @@
   <div>
     <Hero />
     <TopPlayers />
-    <div class="container my-2">
-      <span class="text-3xl">Mesmerising venues</span>
-      <div class="flex flex-wrap justify-evenly text-center">
-        <div
-          class="p-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-          v-for="site in 5"
-          :key="site"
-        >
-          <Card
-            class="mx-auto"
-            title="Stadium Name"
-            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibusquia"
-          />
-        </div>
-      </div>
-    </div>
+    <Stadiums />
     <Gallery />
+    <footer class="h-6 w-full" />
   </div>
 </template>
 
@@ -27,6 +13,7 @@ import Card from "~/components/Card";
 import Gallery from "~/components/Gallery";
 import Hero from "~/components/Hero";
 import TopPlayers from "~/components/TopPlayers";
+import Stadiums from "~/components/Stadiums";
 
 export default {
   name: "Discover",
@@ -34,6 +21,7 @@ export default {
     Card,
     Hero,
     Gallery,
+    Stadiums,
     TopPlayers,
   },
   transition: "fade",

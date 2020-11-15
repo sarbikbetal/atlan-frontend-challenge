@@ -20,7 +20,13 @@
       </div>
     </div>
     <Carousel class="pb-24">
-      <Card class="xl:w-1/4 md:w-1/2 p-4" v-for="i in 10" :key="i" />
+      <Card
+        class="xl:w-1/4 md:w-1/2 p-4"
+        v-for="i in 10"
+        :key="i"
+        overline="TEAM NAME"
+        title="Player Name"
+      />
     </Carousel>
   </section>
 </template>
@@ -47,7 +53,6 @@ export default {
 }
 .bg-blend {
   background-color: var(--header-bg-color);
-  border-color: var(--primary);
 }
 .highlight {
   background-color: var(--secondary);
