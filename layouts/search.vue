@@ -21,6 +21,7 @@
         <facetBar />
       </aside>
       <div class="w-full flex-grow">
+        <!-- render filtered content or the discover component -->
         <Nuxt v-if="isFiltered" />
         <Discover v-else />
       </div>
@@ -48,6 +49,7 @@ export default {
     return {};
   },
   computed: {
+    // check if any entity filter is applied or term is searched
     isFiltered() {
       if (
         (this.$route.query.type == "All" || !this.$route.query.type) &&

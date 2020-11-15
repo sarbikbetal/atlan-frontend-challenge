@@ -8,6 +8,8 @@
       @click="isExpanded = !isExpanded"
     >
       <span class="text-lg">{{ title }}</span>
+
+      <!-- Reverse the direction of chevron depending on the expaneded state -->
       <svg
         :class="isExpanded ? 'inverted' : ''"
         class="h-6 w-6 transition-all ease-out duration-300"
@@ -20,6 +22,7 @@
       </svg>
     </button>
     <div class="flex flex-col items-start">
+      <!-- Main slot for contents -->
       <slot />
     </div>
   </div>

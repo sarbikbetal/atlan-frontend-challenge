@@ -1,5 +1,6 @@
 <template>
   <div class="searchbar flex-1 flex md:max-w-lg lg:max-w-xl items-center">
+    <!-- Entity chooser button -->
     <button
       @click="isChooserOpen = !isChooserOpen"
       class="search-entity-select focus:outline-none"
@@ -23,6 +24,8 @@
         </button>
       </div>
     </button>
+
+    <!-- Search text input -->
     <input
       @keyup.enter="search"
       @keyup.esc="$event.target.blur()"
@@ -31,6 +34,8 @@
       type="text"
       placeholder="Search anything..."
     />
+
+    <!-- Search button -->
     <button @click="search" class="search-btn focus:outline-none">
       <svg class="w-6 h-6 my-2 mx-3" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none" />
@@ -58,7 +63,7 @@ export default {
     };
   },
   methods: {
-    /**  Here we want to preserve other facet filters */
+    // Here we want to preserve other facet filters
     search() {
       let { term, type, ...details } = this.$route.query;
       this.$router.push({
@@ -67,7 +72,7 @@ export default {
       });
     },
 
-    /** Here we are discarding the already set facet filters */
+    // Here we are discarding the already set facet filters
     setFilter(entity) {
       if (this.selectedEntity != entity) {
         this.selectedEntity = entity;

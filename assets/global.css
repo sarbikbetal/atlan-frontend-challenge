@@ -45,15 +45,3 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
-.pretty input:checked ~ .state label:before,
-.pretty.p-toggle .state label:before {
-  border: 1px solid var(--secondary) !important;
-}
-.pretty.p-default:not(.p-fill) input:checked ~ .state label:after {
-  background-color: var(--secondary) !important;
-}
-
-.pretty.p-default.p-round.p-fill input:checked ~ .state label:after {
-  background-color: var(--secondary) !important;
-}

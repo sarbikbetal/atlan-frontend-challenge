@@ -4,10 +4,12 @@
   >
     <slot name="navbar"></slot>
 
+    <!-- Filter button to trigger mobile drawer -->
     <button
       class="filter-btn focus:outline-none flex md:hidden ml-2"
-      @click="drawer"
+      @click="toggleDrawer"
     >
+      <!-- Funnel icon -->
       <svg class="h-6 w-6" viewBox="0 0 24 24">
         <path
           fill="var(--text)"
@@ -41,16 +43,11 @@
       class="drawer flex flex-col transform top-0 left-0 w-64 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
       :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
     >
-      <NuxtLink
-        to="/"
-        @click="isOpen = false"
-        class="drawer-header flex w-full items-center p-3"
-      >
-        <span class="text-2xl">
-          <img src="/icon.png" class="h-8 w-8 inline" /> Discover IPL
-        </span>
+      <NuxtLink to="/" @click="isOpen = false" class="drawer-header">
+        <span class="text-2xl"> Discover IPL </span>
       </NuxtLink>
 
+      <!-- Slot for elements in the drawer -->
       <slot name="list"></slot>
     </aside>
   </nav>
@@ -69,23 +66,23 @@ export default {
     };
   },
   computed: {
+    // return the selected theme
     selectedTheme() {
       return this.$store.state.theme;
     },
   },
   methods: {
-    drawer() {
+    toggleDrawer() {
       this.isOpen = !this.isOpen;
     },
   },
   watch: {
+    // watch for `isOpen` and apply the class immediately
     isOpen: {
       immediate: true,
       handler(isOpen) {
-        if (process.client) {
-          if (isOpen) document.body.style.setProperty("overflow", "hidden");
-          else document.body.style.removeProperty("overflow");
-        }
+        if (isOpen) document.body.style.setProperty("overflow", "hidden");
+        else document.body.style.removeProperty("overflow");
       },
     },
   },
@@ -97,6 +94,10 @@ export default {
   background-color: var(--header-bg-color);
 }
 .drawer-header {
+  @apply flex;
+  @apply items-center;
+  @apply w-full;
+  @apply p-3;
   @apply border-b-2;
   border-color: var(--secondary);
 }

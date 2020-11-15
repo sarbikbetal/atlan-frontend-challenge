@@ -11,6 +11,7 @@
         </svg>
       </FAB>
 
+      <!-- Main section -->
       <section
         ref="carousel"
         class="flex items-center overflow-x-auto overflow-y-hidden no-scrollbar mx-6"

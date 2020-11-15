@@ -4,22 +4,20 @@
       <div class="facet-container">
         <div class="w-full flex items-center py-2">
           <span class="text-2xl pl-4">Filters</span>
-          <span class="flex-grow"></span>
+          <span class="flex-grow" />
+
+          <!-- show the clear button only when facets are applied -->
           <button
-            v-if="isFacetActive()"
+            v-if="isFacetApplied()"
             class="clear-all-btn focus:outline-none flex px-2 mr-4"
             @click="clearFilters"
           >
             <span>Clear</span>
           </button>
         </div>
-        <facetInputs
-          class="mt-3"
-          v-if="getFacets"
-          :type="entityType"
-          :facets="getFacets"
-        />
-        <span class="text-xl" v-else> not implemented</span>
+
+        <!-- Show the actual inputs -->
+        <facetInputs class="mt-3" :type="getEntityType" :facets="getFacets" />
       </div>
     </transition>
   </div>
@@ -35,14 +33,17 @@ export default {
     facetInputs,
   },
   computed: {
+    // Check if the search is narrowed down to an entity.
     isFilterApplied() {
       return filterTags.includes(this.$route.query.type);
     },
-    entityType() {
+    // return the type of the entity
+    getEntityType() {
       return filterTags.includes(this.$route.query.type)
         ? this.$route.query.type
         : "";
     },
+    // Get the facet controls for a specific entity
     getFacets() {
       let zym = this.$store.state;
       let type = filterTags.includes(this.$route.query.type)
@@ -57,6 +58,7 @@ export default {
     },
   },
   methods: {
+    // Clear the filters from the store and the url
     clearFilters() {
       let newRouteQuery = {};
       newRouteQuery.term = this.$route.query.term;
@@ -64,7 +66,8 @@ export default {
       this.$store.commit("setRouteQuery", newRouteQuery);
       this.$router.push({ query: newRouteQuery });
     },
-    isFacetActive() {
+    // Check if the facet filters are applied.
+    isFacetApplied() {
       let { term, type, ...others } = this.$store.state.routeQuery;
       return Object.keys(others).length != 0;
     },
